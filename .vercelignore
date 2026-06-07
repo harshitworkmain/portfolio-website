@@ -1,0 +1,14 @@
+# Large video (390MB - too big for upload)
+public/videos/SPARC.mp4
+
+# Documentation (not needed for build)
+docs/
+
+# Config files for AI agents
+AGENTS.md
+CLAUDE.md
+DESIGN.md
+
+# Build artifacts
+.next
+node_modules
