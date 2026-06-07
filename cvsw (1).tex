@@ -1,0 +1,230 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{tfrupee}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-4pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\ 
+      
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{1\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-9pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
+\newcommand{\resumeItemListStarts}{\begin{itemize}[leftmargin = 9pt]}
+\newcommand{\resumeItemListEnds}{\end{itemize}\vspace{-7pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Harshit Singh} \\ \vspace{1pt}
+    \small +91-8826483132 $|$ 
+    \href{mailto:harshit.workmain@gmail.com}{\underline{harshit.workmain@gmail.com}} $|$
+    \href{https://www.linkedin.com/in/harshit-singh-3b8467300/}{\underline{LinkedIn}} $|$
+    \href{https://github.com/harshitworkmain}{\underline{GitHub}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Vellore Institute of Technology, Chennai}{Chennai, India}
+{B.Tech, Electronics and Computer Engineering \;|\; CGPA: 8.07}{2023 -- 2027}
+
+\resumeSubheading
+{New Era School (CBSE)}{Ghaziabad, Uttar Pradesh}
+{Class XII: 87.2\% \;|\; Class X: 89.9\%}{2020 -- 2023}
+
+\resumeSubHeadingListEnd
+
+\vspace{-8pt}
+
+%-----------EXPERIENCE & LEADERSHIP-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{AI \& Robotics Intern — Autonomous Mobile Robotics \href{https://drive.google.com/file/d/1tlTXqB9SfdCe-Xos92JxB9dEDdrS36nc/view?usp=sharing}{\small[\textbf{Certificate}]}}{Jul 2025 -- Aug 2025}
+{STEMTEC AI \& Robotics Technology Pvt. Ltd.}{Chennai, India}
+\resumeItemListStart
+\resumeItem{Developed a \textbf{ROS~2~Jazzy reactive navigation node} processing \texttt{/scan} LiDAR data at \textbf{10~Hz}, enabling real-time obstacle avoidance within a \textbf{0.75~m safety radius} and reducing collision events during indoor navigation tests by \textbf{\(\sim\)80\%}.}
+\resumeItem{Implemented timer-driven velocity control nodes publishing to \texttt{/cmd\_vel} with \textbf{sub-50~ms command latency}, achieving stable motion at \textbf{0.4~m/s} and consistent bidirectional odometry validation across simulation and hardware deployments.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{\textbf{SPARC — Sign Language Processing \& Recognition System} 
+\emph{(OpenCV, Deep Learning)}}
+{\href{https://drive.google.com/file/d/118CLG9JfvNNn8UijlYk3M2-awfjBkGyW/view?usp=sharing}{\small[\textbf{Demo}]}\hspace{6pt}
+ \href{https://sparc-web-app.vercel.app/}{\small[\textbf{Web-App}]}}
+\resumeItemListStart
+\resumeItem{Developed a real-time ISL/ASL recognition pipeline (A–Z, 0–9, words) trained on \textbf{12k+ samples}, achieving \textbf{92.4\% accuracy} at \textbf{15–20 FPS} with end-to-end latency under \textbf{180 ms} including TTS.}
+\resumeItem{Engineered a modular inference architecture using \textbf{MediaPipe, TensorFlow/Keras, and OpenCV}, enabling deployment across \textbf{3+ configurations} with automatic fallback and sub-\textbf{250 ms} recovery from sensor failures.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{TRIDENT — Tactical Disaster Response \& Rescue System} 
+\emph{(IoT, Robotics)}}
+{\href{https://drive.google.com/file/d/1tUl8rAFmcdpX7BgRRWtE-QdVltjiZb7W/view?usp=sharing}{\small[\textbf{Demo}]}\hspace{6pt}
+ \href{https://github.com/harshitworkmain/trident}{\small[\textbf{GitHub}]}}
+\resumeItemListStart
+\resumeItem{Built an edge-based rescue platform integrating a smart wearable, dashboard, and ROV, streaming \textbf{real-time vitals, motion, stress, and GPS data} with alert latency under \textbf{1.8 s} and telemetry uptime of \textbf{\textgreater95\%}.}
+\resumeItem{Designed rule-based and probabilistic scoring to classify victims into \textbf{Priority 1–5}, reducing manual triage time by \textbf{40\%} and improving decision accuracy by \textbf{30\%}.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{DrishtiGuide — Assistive Navigation System} 
+\emph{(YOLOv8, IoT)}}
+{\href{https://github.com/harshitworkmain/drishtiguide}{\small[\textbf{GitHub}]}}
+\resumeItemListStart
+\resumeItem{Built a real-time multimodal navigation pipeline (audio, haptic, ultrasonic), reducing missed-obstacle events by \textbf{\~60\%} versus cane-only navigation in field trials.}
+\resumeItem{Integrated \textbf{YOLOv8, OpenCV, and PyTorch} with ESP8266 telemetry, achieving \textbf{sub-120\,ms inference latency} and \textbf{\textgreater99\%} reliable GPS alert delivery to caregivers.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Skills}
+\begin{itemize}[leftmargin=0in, label={}]
+\small{\item{
+\textbf{Programming Languages:} C, Python, Java, HTML, CSS \\
+\textbf{Frameworks \& Libraries:} OpenCV, PyTorch, TensorFlow, YOLOv8, ROS~2, NumPy, Pandas, MediaPipe, CVZone \\
+\textbf{Systems \& Platforms:} Linux, ROS~2 Middleware, Real-time Data Pipelines \\
+\textbf{Development Tools:} Visual Studio Code, Git, Github \\
+\textbf{Professional Skills:} Software Design, Problem-solving, Debugging, Collaboration, Time Management
+}}
+\end{itemize}
+
+\vspace{-14pt}
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements \& Leadership}
+\resumeItemListStarts
+
+\resumeItem{\textbf{SIH’25 Finalist} — advanced to \textbf{Top 50 out of 864 teams} internally and \textbf{Top 5 out of 500} teams nationally for the Grand Finale. \hfill
+\href{https://drive.google.com/file/d/1Vy3qPMbipSNLYGE3GdyYMsqRPwHSYtPD/view?usp=sharing}{\small[\textbf{Certificate}]}}
+
+\resumeItem{\textbf{3rd Place, Technovation 2025} (Kurukshetra ’25, CEG Guindy, Anna University) — ranked \textbf{2nd Runner Up out of 50+} teams; \rupee~15,000 award. \hfill
+\href{https://drive.google.com/file/d/1AkRdc0y1Qdw9cImu5395G5RwdB8vPJuo/view?usp=sharing}{\small[\textbf{Certificate}]}}
+
+\resumeItem{\textbf{Winner, Innovate X Impact (V-NEST)} — secured \textbf{1st Position out of 35} teams; \rupee~5,000 award.}
+
+\resumeItem{\textbf{Deputy Operations Lead, Team Namo Nirvana (VIT Chennai)} — led \textbf{100+ member} teams across \textbf{5–6 competitions/semester}, boosting execution efficiency by \textbf{35\%} and securing \textbf{2 sponsors}. \hfill
+\href{https://drive.google.com/file/d/13dByHnoyORd2wqy27hb_piQI_UBVmwLd/view?usp=sharing}{\small[\textbf{LOA}]}}
+
+\resumeItemListEnds
+
+
+\vspace{-4pt}
+
+%-----------LANGUAGES-----------
+\section{Languages}
+\small{English (Fluent) \quad | \quad Hindi (Native)}
+\vspace{10pt}
+
+
+
+\end{document}
