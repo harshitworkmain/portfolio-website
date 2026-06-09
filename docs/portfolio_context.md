@@ -15,6 +15,7 @@ This document serves as the single, high-fidelity reference file containing all 
     *   **Email:** [harshit.workmain@gmail.com](mailto:harshit.workmain@gmail.com)
     *   **LinkedIn:** [linkedin.com/in/harshit-singh-3b8467300](https://www.linkedin.com/in/harshit-singh-3b8467300/)
     *   **GitHub:** [github.com/harshitworkmain](https://github.com/harshitworkmain)
+    *   **X (Twitter):** [x.com/HarshitSin22346](https://x.com/HarshitSin22346)
 
 ---
 
@@ -70,7 +71,7 @@ This document serves as the single, high-fidelity reference file containing all 
 ### 🦻 2. SPARC — Sign Language Processing & Recognition System
 *Modular real-time sign language translator & emotional accessibility platform* | **Status:** Deployed  
 *   **Code & Docs:** [github.com/harshitworkmain/SPARC](https://github.com/harshitworkmain/SPARC)
-*   **Credentials & Demos:** [[Demo Video](https://drive.google.com/file/d/118CLG9JfvNNn8UijlYk3M2-awfjBkGyW/view?usp=sharing)] | [[Web-App Client](https://sparc-web-app.vercel.app/)]
+*   **Credentials & Demos:** [[YouTube Demo Video](https://youtu.be/W2UOCENfXzg)] | [[Google Drive Demo Video](https://drive.google.com/file/d/118CLG9JfvNNn8UijlYk3M2-awfjBkGyW/view?usp=sharing)] | [[Web-App Client](https://sparc-web-app.vercel.app/)]
 
 *   **Real-Time Sign Engine:** Built a real-time gesture pipeline trained on a custom dataset of **12,000+ hand samples**, supporting both **Indian Sign Language (ISL)** and **American Sign Language (ASL)**.
 *   **Performance Metrics:** Achieved **92.4% gesture recognition accuracy** at **15–20 FPS** with end-to-end classification-to-voice latency under **180 ms**.
