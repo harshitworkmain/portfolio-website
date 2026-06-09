@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,12 +12,31 @@ const navItems = [
   { name: "Achievements", href: "/achievements" },
   { name: "Leadership", href: "/leadership" },
   { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Special handling for Contact — smooth scroll if on home page
+    if (href === "/#contact") {
+      e.preventDefault();
+      if (pathname === "/") {
+        // Already on home — smooth scroll
+        const el = document.getElementById("contact");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      } else {
+        // Navigate to home then scroll (hash will trigger browser scroll)
+        router.push("/#contact");
+      }
+      setIsOpen(false);
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200/60 bg-white/60 backdrop-blur-xl">
@@ -35,11 +54,15 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive =
+                item.href === "/#contact"
+                  ? false
+                  : pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative py-1 text-xs uppercase tracking-widest transition-colors duration-300 ${
                     isActive
                       ? "text-black font-medium"
@@ -81,12 +104,18 @@ export default function Navbar() {
           >
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => {
-                const isActive = pathname === item.href;
+                const isActive =
+                  item.href === "/#contact"
+                    ? false
+                    : pathname === item.href;
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      handleNavClick(e, item.href);
+                      setIsOpen(false);
+                    }}
                     className={`text-xs uppercase tracking-widest py-2 transition-colors duration-300 ${
                       isActive
                         ? "text-black font-medium"

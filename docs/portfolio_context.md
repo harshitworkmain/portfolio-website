@@ -176,10 +176,16 @@ This document serves as the single, high-fidelity reference file containing all 
 ## 🎨 Portfolio Design System & Branding Guidelines
 
 ### Visual Theme Preferences
-*   **Aesthetic Tone:** Immersive, high-performance, dark-mode futuristic. Combines premium deep slate backgrounds with vibrant accent glows (e.g. electric cyan, emerald green, and neon purple) reflecting AI, robotics, and hardware systems.
+*   **Aesthetic Tone:** "Inverted Universe" — gallery-white canvas (`#ffffff`) backdrop populated by deep-black/charcoal-zinc elements, and subtle brand-colored highlights.
 *   **Layout Structure:**
-    *   **Full-Screen 3D R3F Canvas Backdrop:** Interactive, responsive background featuring floating abstract geometries, rotating coordinate grids, or starfield particles reacting subtly to scroll depth and mouse coordinates.
-    *   **HTML Glassmorphic Overlays (Tailwind + Framer Motion):** Smooth scroll-linked entering states, clean typography (e.g. Google Fonts Outfit or Space Grotesk), and crisp micro-animations for hover states.
+    *   **3D Interactive Backdrop:** WebGL interstellar-style black hole and suspended graphite-like dust particles built using React Three Fiber (R3F) and Three.js, responding dynamically to scroll depth and mouse cursor position.
+    *   **HTML Glassmorphic Panels:** Clean translucent glass boards (`bg-white/45`) with `backdrop-blur-md` filters and thin borders (`border-zinc-100`), styled with smooth entry and hover animations.
+    *   **Typography:** Displays headlines in uppercase **Space Grotesk** for a geometric, technical feel, balanced by **Plus Jakarta Sans** for body copy and **Geist Mono** for telemetry elements.
+    *   **Landing Page Sections:**
+        *   **Software Systems & Telemetry Console:** Simulated UNIX terminal diagnostic log widget updating dynamically based on intersection observation.
+        *   **Tech Stack Matrix:** 5-category SVG-driven container showing official developer tool and language logos with hover magnification.
+        *   **Core Engineering Pillars:** Three distinct card areas emphasizing Embedded Intelligence, Applied ML & Analytics, and Full-Stack Systems.
+        *   **Unified Contact Block:** Integrated directly at the bottom of the homepage (`#contact`) with Navbar hash routing, smooth-scroll behavior, and client-side redirects from auxiliary routes.
 
 ### Copywriting Rules
 *   **Quantifiable Impact First:** Never write generic descriptions. Focus strictly on numbers, response latencies, data throughputs, and physical percentage changes (e.g. *"...reduced collision events by 80% with sub-50 ms latencies"*).

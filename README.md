@@ -64,10 +64,12 @@ Flipping the traditional dark-mode space aesthetic, this design system implement
 │   └── components/              # Shared React components
 │       ├── canvas/              # R3F WebGL Three.js components
 │       │   └── BlackHoleCanvas.tsx # Interactive Black Hole element
-│       └── ui/                  # Clean layout assets (Navbar, Footer, transitions)
+│       └── ui/                  # Clean layout assets (Navbar, Footer, transitions, console, matrix)
 │           ├── Footer.tsx
 │           ├── Navbar.tsx
-│           └── PageTransition.tsx
+│           ├── PageTransition.tsx
+│           ├── StatusConsole.tsx   # Simulated system diagnosis console component
+│           └── TechMatrix.tsx      # SVG-driven tech matrix component
 ├── package.json                 # Node modules & dependencies
 ├── tsconfig.json                # TypeScript settings
 └── next.config.ts               # Next.js configurations & redirects
