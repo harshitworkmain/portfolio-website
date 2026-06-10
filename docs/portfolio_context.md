@@ -154,18 +154,21 @@ This document serves as the single, high-fidelity reference file containing all 
 3.  **1st Place, Innovate X Impact (V-NEST Business Incubator):**
     *   Won 1st Place out of 35 competing startup pitches.
     *   Awarded a cash prize of **₹5,000**.
-4.  **NCC Achievements (1 Tamil Nadu Battalion NCC):**
-    *   Promoted from Cadet to Lance Corporal (Republic Day 2025).
-    *   Promoted from Lance Corporal to Corporal (Independence Day 2025).
-    *   **NCC CATC-25 Camp:** Secured Triple Honors: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*.
-5.  **Indian Coast Guard Fitness Festival 2025:**
-    *   Awarded Certificate of Appreciation for coordinating logistics, registration, and event scheduling for **1,000+ elite competitors** (Armed forces personnel, corporate leaders, and university units).
+4.  **BIS Project Showcase Presenter (Bureau of Indian Standards):**
+    *   Selected to exhibit the Terrain Scout Rover at the BIS Project Showcase held at VIT Chennai, demonstrating its intelligent navigation and scouting capabilities.
+5.  **VITISH’25 Internal Finalist (SIH 2025 Internal Hackathon):**
+    *   Placed in the **Top 100 out of 864 competing teams** (advancing to the 212-team 24-hour hackathon round) with the TRIDENT Tactical Rescue Interface ecosystem (Smart Wearable + Command Center + Autonomous Underwater ROV).
 
 ---
 
 ## 🏀 Extracurriculars & Leadership
 
 *   **Team Namo Nirvana Operations Lead:** Coordinated schedules, budgets, technical team alignments, and sponsored materials for a 100+ member engineering crew.
+*   **NCC Cadet Leadership (1 Tamil Nadu Battalion NCC):**
+    *   Promoted from Cadet to Lance Corporal (Republic Day 2025), and subsequently to Corporal (Independence Day 2025).
+    *   **NCC CATC-25 Camp:** Secured Triple Honors: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*.
+*   **Indian Coast Guard Fitness Festival 2025 Event Coordinator:**
+    *   Awarded Certificate of Appreciation for coordinating logistics, registration, and event scheduling for **1,000+ elite competitors** (Armed forces, corporate, and university groups).
 *   **Sports:** University and national-level basketball player (Secured 3rd Place Men's Category, Founder's Birthday Trophy 2024 at SRM IST).
 *   **Social Outreach:** Core volunteer at *VITeach*, leading tutoring and community outreach camps for underprivileged children.
 *   **Academic Clubs:** Active participant in the *VIT Chennai Quiz Club*.

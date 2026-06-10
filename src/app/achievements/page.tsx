@@ -34,6 +34,26 @@ const achievements = [
     credentialLabel: "",
     color: "bg-zinc-700 text-white",
   },
+  {
+    rank: "Exhibitor",
+    tag: "TERRAIN SCOUT DISPLAY",
+    title: "BIS Project Showcase — VIT Chennai",
+    description:
+      "Presented the Terrain Scout Rover project at the Bureau of Indian Standards (BIS) Project Showcase held at VIT Chennai, showcasing its ability to navigate and scout challenging terrains with high precision.",
+    credential: "",
+    credentialLabel: "",
+    color: "bg-zinc-600 text-white",
+  },
+  {
+    rank: "Top 100 / 864 Teams",
+    tag: "SIH INTERNAL FINALIST",
+    title: "VITISH’25 Internal Hackathon (SIH 2025)",
+    description:
+      "Advanced to the top 100 out of 864 teams in the SIH Internal Hackathon round, presenting TRIDENT – Tactical Rescue Interface for Disaster Events & Nautical Threats. Developed a unified emergency rescue ecosystem spanning a smart wearable for health telemetry, a central command dashboard for prioritised victim triage (Levels 1–5), and an autonomous rescue underwater ROV validated via CFD simulation.",
+    credential: "",
+    credentialLabel: "",
+    color: "bg-zinc-500 text-white",
+  },
 ];
 
 const fadeUp = {
