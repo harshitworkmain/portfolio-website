@@ -30,6 +30,19 @@ const leadershipItems = [
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
     ),
   },
+  {
+    category: "NCC CADET LEADERSHIP",
+    title: "Lance Corporal → Corporal",
+    org: "1 Tamil Nadu Battalion NCC — VIT Chennai Unit",
+    timeline: "Republic Day 2025 – Present",
+    description:
+      "Promoted from Cadet to Lance Corporal (Republic Day 2025), then to Corporal (Independence Day 2025). Secured Triple Honors at CATC-25 Camp: Best Marching Contingent, Best Cultural Performance, and Overall Best Company.",
+    credentialLink: "",
+    credentialLabel: "",
+    icon: (
+      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg>
+    ),
+  },
 ];
 
 const extracurriculars = [
@@ -84,7 +97,7 @@ export default function LeadershipPage() {
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-black uppercase font-heading">
             Leadership & Life
           </h1>
-          <p className="mt-3 text-sm text-zinc-500 uppercase tracking-widest">
+          <p className="mt-3 text-sm text-zinc-600 font-medium uppercase tracking-widest">
             Positions of Responsibility, Events, Sports & Community
           </p>
           <div className="mt-6 border-b border-zinc-200" />
@@ -92,8 +105,8 @@ export default function LeadershipPage() {
 
         {/* Leadership Section */}
         <div className="mt-14">
-          <h2 className="text-xs uppercase tracking-widest text-zinc-400 mb-8 font-heading flex items-center gap-2">
-            <span className="h-px w-6 bg-zinc-300" />
+          <h2 className="text-xs uppercase tracking-widest text-zinc-600 font-bold mb-8 font-heading flex items-center gap-2">
+            <span className="h-px w-6 bg-zinc-350" />
             Leadership & Operations
           </h2>
           <div className="flex flex-col gap-6">
@@ -104,26 +117,26 @@ export default function LeadershipPage() {
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="glass-panel glass-panel-hover rounded-lg p-6"
+                className="glass-panel glass-panel-hover rounded-lg p-6 border border-zinc-200"
               >
                 <div className="flex items-start gap-4">
-                  <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-200 flex items-center justify-center text-black shrink-0 mt-1">
+                  <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-250 flex items-center justify-center text-black shrink-0 mt-1">
                     {item.icon}
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-3 mb-2">
-                      <span className="text-[10px] uppercase tracking-widest text-zinc-400 border border-zinc-200 rounded px-2 py-0.5">
+                      <span className="text-[10px] uppercase tracking-widest text-zinc-700 border border-zinc-350 rounded px-2 py-0.5 font-semibold">
                         {item.category}
                       </span>
-                      <span className="text-[10px] uppercase tracking-widest text-zinc-400">
+                      <span className="text-[10px] uppercase tracking-widest text-zinc-600 font-semibold">
                         {item.timeline}
                       </span>
                     </div>
-                    <h3 className="text-base font-semibold text-black tracking-tight font-heading">
+                    <h3 className="text-base font-bold text-black tracking-tight font-heading">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-zinc-500 mt-0.5">{item.org}</p>
-                    <p className="text-sm text-zinc-500 leading-relaxed mt-3 font-body">
+                    <p className="text-xs text-zinc-700 font-medium mt-0.5">{item.org}</p>
+                    <p className="text-sm text-zinc-700 font-normal leading-relaxed mt-3 font-body">
                       {item.description}
                     </p>
                     {item.credentialLink && (
@@ -131,7 +144,7 @@ export default function LeadershipPage() {
                         href={item.credentialLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 mt-4 text-[10px] uppercase tracking-widest text-zinc-400 hover:text-black transition-colors"
+                        className="inline-flex items-center gap-1.5 mt-4 text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-black transition-colors"
                       >
                         <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 15l-2 5l1-3h2l1 3l-2-5z"/><circle cx="12" cy="9" r="6"/></svg>
                         {item.credentialLabel}
@@ -146,8 +159,8 @@ export default function LeadershipPage() {
 
         {/* Extracurriculars Section */}
         <div className="mt-20">
-          <h2 className="text-xs uppercase tracking-widest text-zinc-400 mb-8 font-heading flex items-center gap-2">
-            <span className="h-px w-6 bg-zinc-300" />
+          <h2 className="text-xs uppercase tracking-widest text-zinc-600 font-bold mb-8 font-heading flex items-center gap-2">
+            <span className="h-px w-6 bg-zinc-350" />
             Extracurriculars
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -158,20 +171,20 @@ export default function LeadershipPage() {
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-4"
+                className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-4 border border-zinc-200"
               >
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-200 flex items-center justify-center text-black">
+                  <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-250 flex items-center justify-center text-black">
                     {item.icon}
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest text-zinc-400">
+                  <span className="text-[10px] uppercase tracking-widest text-zinc-600 font-semibold">
                     {item.category}
                   </span>
                 </div>
-                <h3 className="text-sm font-semibold text-black tracking-tight font-heading">
+                <h3 className="text-sm font-bold text-black tracking-tight font-heading">
                   {item.title}
                 </h3>
-                <p className="text-xs text-zinc-500 leading-relaxed font-body">
+                <p className="text-xs text-zinc-700 font-normal leading-relaxed font-body">
                   {item.description}
                 </p>
               </motion.div>
@@ -188,7 +201,7 @@ export default function LeadershipPage() {
         >
           <div>
             <h3 className="text-sm font-semibold text-black font-heading uppercase tracking-wide">Connect on LinkedIn</h3>
-            <p className="text-xs text-zinc-400 mt-1">See posts, updates, and event coverage.</p>
+            <p className="text-xs text-zinc-600 mt-1">See posts, updates, and event coverage.</p>
           </div>
           <a
             href="https://www.linkedin.com/in/harshit-singh-3b8467300/"

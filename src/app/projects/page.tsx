@@ -102,18 +102,6 @@ const projectsData = [
     live: "",
     demo: "",
     certificate: ""
-  },
-  {
-    id: "aurora",
-    title: "AURORA — Autonomous Rover Simulated Stack",
-    category: "Robotics",
-    metrics: "TEB + MPC planner models | Behavior Tree task controls",
-    description: "Concept stack for Jetson architectures combining visual stereo odometry, TEB local trajectories, model-predictive controls, and battery-aware recovery systems mapped through Behavior Trees.",
-    techStack: ["NVIDIA Jetson", "TEB Local Planner", "MPC", "Behavior Trees", "Stereo Odometry"],
-    github: "",
-    live: "",
-    demo: "",
-    certificate: ""
   }
 ];
 
@@ -134,7 +122,7 @@ export default function Projects() {
           <h1 className="text-3xl font-extrabold tracking-tight text-black sm:text-4xl uppercase">
             Engineering Feats
           </h1>
-          <p className="text-xs uppercase tracking-widest text-zinc-400 font-light">
+          <p className="text-sm uppercase tracking-widest text-zinc-600 font-medium">
             Showcase of hardware-backed AI, robotics ecosystems, and edge pipelines
           </p>
         </div>
@@ -148,7 +136,7 @@ export default function Projects() {
               className={`px-4 py-2 rounded text-[10px] font-semibold tracking-widest uppercase transition-all duration-300 border ${
                 activeCategory === cat
                   ? "bg-black text-white border-black"
-                  : "bg-white text-zinc-400 border-zinc-200 hover:text-black hover:border-zinc-400"
+                  : "bg-white text-zinc-600 border-zinc-300 hover:text-black hover:border-zinc-500"
               }`}
             >
               {cat}
@@ -170,16 +158,16 @@ export default function Projects() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col justify-between h-full border border-zinc-100"
+                className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col justify-between h-full border border-zinc-200"
               >
                 <div>
                   {/* Category & Verified Metric */}
                   <div className="flex flex-wrap items-center gap-2 mb-4">
-                    <span className="px-2 py-0.5 rounded text-[8px] font-bold tracking-widest bg-zinc-100 text-zinc-500 uppercase border border-zinc-200">
+                    <span className="px-2 py-0.5 rounded text-[9px] font-bold tracking-widest bg-zinc-150 text-zinc-700 uppercase border border-zinc-300">
                       {project.category}
                     </span>
-                    <span className="flex items-center gap-1.5 text-[9px] font-medium tracking-wide text-zinc-400 uppercase">
-                      <Activity className="h-3 w-3 text-zinc-400" />
+                    <span className="flex items-center gap-1.5 text-[11px] font-semibold tracking-wide text-zinc-600 uppercase">
+                      <Activity className="h-3.5 w-3.5 text-zinc-600" />
                       {project.metrics}
                     </span>
                   </div>
@@ -190,7 +178,7 @@ export default function Projects() {
                   </h2>
 
                   {/* Description */}
-                  <p className="text-xs text-zinc-500 font-light leading-relaxed mb-6">
+                  <p className="text-sm text-zinc-700 font-normal leading-relaxed mb-6">
                     {project.description}
                   </p>
                 </div>
@@ -201,7 +189,7 @@ export default function Projects() {
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 rounded text-[9px] font-medium bg-zinc-50 border border-zinc-200 text-zinc-500 font-mono"
+                        className="px-2 py-0.5 rounded text-[10px] font-semibold bg-zinc-100 border border-zinc-300 text-zinc-700 font-mono"
                       >
                         {tech}
                       </span>
@@ -209,13 +197,13 @@ export default function Projects() {
                   </div>
 
                   {/* Links Row */}
-                  <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-zinc-100">
+                  <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-zinc-200">
                     {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors duration-300"
+                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-black transition-colors duration-300"
                       >
                         <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
                           <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
@@ -228,7 +216,7 @@ export default function Projects() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors duration-300"
+                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-black transition-colors duration-300"
                       >
                         <ExternalLink className="h-3.5 w-3.5" />
                         Live
@@ -239,7 +227,7 @@ export default function Projects() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors duration-300"
+                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-black transition-colors duration-300"
                       >
                         <FileText className="h-3.5 w-3.5" />
                         Demo
@@ -250,7 +238,7 @@ export default function Projects() {
                         href={project.certificate}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors duration-300"
+                        className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-black transition-colors duration-300"
                       >
                         <Award className="h-3.5 w-3.5" />
                         Award

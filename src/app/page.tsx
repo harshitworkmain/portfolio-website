@@ -73,13 +73,13 @@ function VideoCard({
         <h3 className="text-sm font-semibold tracking-wide text-black uppercase font-heading">
           {title}
         </h3>
-        <p className="text-xs text-zinc-500 leading-relaxed">{subtitle}</p>
+        <p className="text-sm text-zinc-700 leading-relaxed font-normal">{subtitle}</p>
         <div className="flex gap-4 mt-2">
           <a
             href={codeLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] uppercase tracking-widest text-zinc-400 hover:text-black transition-colors flex items-center gap-1"
+            className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-black transition-colors flex items-center gap-1"
           >
             <svg className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.16c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 016.02 0c2.28-1.55 3.28-1.23 3.28-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             Code
@@ -88,7 +88,7 @@ function VideoCard({
             href={demoLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] uppercase tracking-widest text-zinc-400 hover:text-black transition-colors flex items-center gap-1"
+            className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 hover:text-black transition-colors flex items-center gap-1"
           >
             <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             {demoLabel}
@@ -132,9 +132,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] font-semibold tracking-widest text-zinc-500 border border-zinc-200 bg-white/60 backdrop-blur-sm uppercase"
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[10px] font-bold tracking-widest text-zinc-700 border border-zinc-350 bg-white/60 backdrop-blur-sm uppercase"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-zinc-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-zinc-600" />
               Vellore Institute of Technology, Chennai
             </motion.div>
 
@@ -145,14 +145,14 @@ export default function Home() {
               className="text-4xl font-bold tracking-tight text-black sm:text-6xl uppercase font-heading"
             >
               Software Systems
-              <span className="block text-zinc-400 font-light mt-1">Engineer & Applied AI Developer</span>
+              <span className="block text-zinc-600 font-medium mt-1">Engineer & Applied AI Developer</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-sm md:text-base leading-8 text-zinc-500 font-light max-w-xl font-body"
+              className="text-sm md:text-base leading-8 text-zinc-700 font-normal max-w-xl font-body"
             >
               Electronics and Computer Engineering undergraduate specializing in high-performance
               software engineering, applied AI/ML systems, data analytics pipelines, and edge computing solutions.
@@ -208,33 +208,33 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="grid grid-cols-1 gap-6 sm:grid-cols-3 mt-20 border-t border-zinc-200/60 pt-14"
         >
-          <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-3">
-            <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center border border-zinc-200 text-black">
+          <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-3 border border-zinc-200">
+            <div className="h-8 w-8 rounded bg-zinc-150 flex items-center justify-center border border-zinc-300 text-black">
               <Cpu className="h-4 w-4" />
             </div>
             <div>
               <span className="block text-2xl font-bold tracking-tight text-black uppercase font-heading">92.4% Accuracy</span>
-              <span className="block text-[10px] uppercase tracking-widest text-zinc-400 mt-1">Real-Time SPARC Sign Recognition</span>
+              <span className="block text-[10px] uppercase tracking-widest text-zinc-600 font-semibold mt-1">Real-Time SPARC Sign Recognition</span>
             </div>
           </div>
 
-          <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-3">
-            <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center border border-zinc-200 text-black">
+          <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-3 border border-zinc-200">
+            <div className="h-8 w-8 rounded bg-zinc-150 flex items-center justify-center border border-zinc-300 text-black">
               <Activity className="h-4 w-4" />
             </div>
             <div>
               <span className="block text-2xl font-bold tracking-tight text-black uppercase font-heading">Sub-50 ms</span>
-              <span className="block text-[10px] uppercase tracking-widest text-zinc-400 mt-1">ROS 2 Control &amp; Motor Command Latency</span>
+              <span className="block text-[10px] uppercase tracking-widest text-zinc-600 font-semibold mt-1">ROS 2 Control &amp; Motor Command Latency</span>
             </div>
           </div>
 
-          <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-3">
-            <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center border border-zinc-200 text-black">
+          <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-3 border border-zinc-200">
+            <div className="h-8 w-8 rounded bg-zinc-150 flex items-center justify-center border border-zinc-300 text-black">
               <Compass className="h-4 w-4" />
             </div>
             <div>
               <span className="block text-2xl font-bold tracking-tight text-black uppercase font-heading">&gt;95% Uptime</span>
-              <span className="block text-[10px] uppercase tracking-widest text-zinc-400 mt-1">TRIDENT Distributed Edge Telemetry</span>
+              <span className="block text-[10px] uppercase tracking-widest text-zinc-600 font-semibold mt-1">TRIDENT Distributed Edge Telemetry</span>
             </div>
           </div>
         </motion.div>
@@ -248,7 +248,7 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-20"
         >
-          <h2 className="text-xs uppercase tracking-widest text-zinc-400 mb-8 font-heading">Featured Demos</h2>
+          <h2 className="text-xs uppercase tracking-widest text-zinc-650 font-bold mb-8 font-heading">Featured Demos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <VideoCard
               src="/videos/wearable-demo.mp4"
@@ -259,7 +259,7 @@ export default function Home() {
               demoLabel="Full Demo"
             />
             <VideoCard
-              src="/videos/SPARC-preview.mp4"
+              src="/videos/sparc/SPARC-preview.mp4"
               title="SPARC — Sign Language Recognition"
               subtitle="92.4% accuracy real-time gesture recognition pipeline supporting ISL and ASL with multimodal fusion — hand landmarks, facial emotion, and voice synthesis."
               codeLink="https://github.com/harshitworkmain/SPARC"
@@ -279,45 +279,45 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="mt-24"
         >
-          <h2 className="text-xs uppercase tracking-widest text-zinc-400 mb-8 font-heading flex items-center gap-2">
-            <span className="h-px w-6 bg-zinc-300" />
+          <h2 className="text-xs uppercase tracking-widest text-zinc-650 font-bold mb-8 font-heading flex items-center gap-2">
+            <span className="h-px w-6 bg-zinc-350" />
             Core Engineering Pillars
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-4">
-              <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-200 flex items-center justify-center text-black">
+            <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-4 border border-zinc-200">
+              <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-250 flex items-center justify-center text-black">
                 <Server className="h-5 w-5" />
               </div>
               <h3 className="text-sm font-bold text-black uppercase tracking-wider font-heading">
                 Embedded Intelligence & Middleware
               </h3>
-              <p className="text-xs text-zinc-500 leading-relaxed font-body">
+              <p className="text-sm text-zinc-700 leading-relaxed font-normal font-body">
                 ROS 2 robotic middleware, real-time sensor telemetry loops, ESP32 edge orchestration,
                 and sub-50ms latency motor controllers for autonomous systems.
               </p>
             </div>
 
-            <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-4">
-              <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-200 flex items-center justify-center text-black">
+            <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-4 border border-zinc-200">
+              <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-250 flex items-center justify-center text-black">
                 <Brain className="h-5 w-5" />
               </div>
               <h3 className="text-sm font-bold text-black uppercase tracking-wider font-heading">
                 Applied ML & Analytics Platforms
               </h3>
-              <p className="text-xs text-zinc-500 leading-relaxed font-body">
+              <p className="text-sm text-zinc-700 leading-relaxed font-normal font-body">
                 Computer vision deployment (YOLOv8/MediaPipe), forecasting LSTMs, graph-based risk diffusion
                 models, and real-time data analytics dashboards.
               </p>
             </div>
 
-            <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-4">
-              <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-200 flex items-center justify-center text-black">
+            <div className="glass-panel glass-panel-hover rounded-lg p-6 flex flex-col gap-4 border border-zinc-200">
+              <div className="h-10 w-10 rounded bg-zinc-100 border border-zinc-250 flex items-center justify-center text-black">
                 <Code2 className="h-5 w-5" />
               </div>
               <h3 className="text-sm font-bold text-black uppercase tracking-wider font-heading">
                 Full-Stack Software Engineering
               </h3>
-              <p className="text-xs text-zinc-500 leading-relaxed font-body">
+              <p className="text-sm text-zinc-700 leading-relaxed font-normal font-body">
                 Performant React/Next.js client apps, Node.js REST APIs, shared-memory optimization,
                 WebRTC teleconsultation, and database-backed community platforms.
               </p>
@@ -335,8 +335,8 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="mt-24"
         >
-          <h2 className="text-xs uppercase tracking-widest text-zinc-400 mb-8 font-heading flex items-center gap-2">
-            <span className="h-px w-6 bg-zinc-300" />
+          <h2 className="text-xs uppercase tracking-widest text-zinc-650 font-bold mb-8 font-heading flex items-center gap-2">
+            <span className="h-px w-6 bg-zinc-350" />
             Technical Arsenal
           </h2>
           <TechMatrix />
@@ -352,8 +352,8 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="mt-24"
         >
-          <h2 className="text-xs uppercase tracking-widest text-zinc-400 mb-8 font-heading flex items-center gap-2">
-            <span className="h-px w-6 bg-zinc-300" />
+          <h2 className="text-xs uppercase tracking-widest text-zinc-650 font-bold mb-8 font-heading flex items-center gap-2">
+            <span className="h-px w-6 bg-zinc-350" />
             System Diagnostics
           </h2>
           <StatusConsole />
@@ -368,12 +368,12 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
-            className="mt-24 border-t border-zinc-200/60 pt-14"
+            className="mt-24 border-t border-zinc-200 pt-14"
           >
             <h2 className="text-3xl font-extrabold tracking-tight text-black sm:text-4xl uppercase font-heading">
               Start a Conversation
             </h2>
-            <p className="text-xs uppercase tracking-widest text-zinc-400 font-light mt-3">
+            <p className="text-sm uppercase tracking-widest text-zinc-600 font-semibold mt-3">
               Drop an email or connect through professional networks
             </p>
 
@@ -381,10 +381,10 @@ export default function Home() {
               {/* Left Column: Direct Links */}
               <div className="flex flex-col gap-8 justify-center">
                 <div>
-                  <h3 className="text-xs uppercase tracking-widest text-zinc-500 font-bold mb-4">
+                  <h3 className="text-xs uppercase tracking-widest text-zinc-700 font-extrabold mb-4">
                     Connection Nodes
                   </h3>
-                  <p className="text-xs text-zinc-500 font-light leading-relaxed max-w-md">
+                  <p className="text-sm text-zinc-700 font-normal leading-relaxed max-w-md">
                     Whether you want to discuss ROS 2 stack optimization, computer vision pipelines, custom ESP32 wearables,
                     or full-stack ML integrations, reach out anytime.
                   </p>
@@ -394,13 +394,13 @@ export default function Home() {
                   {/* Email */}
                   <a
                     href="mailto:harshit.workmain@gmail.com"
-                    className="glass-panel p-4 rounded-lg border border-zinc-100 hover:border-zinc-300 transition-all duration-300 flex items-center gap-4"
+                    className="glass-panel p-4 rounded-lg border border-zinc-200 hover:border-zinc-400 transition-all duration-300 flex items-center gap-4"
                   >
-                    <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-500">
+                    <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-700">
                       <Mail className="h-4 w-4" />
                     </div>
                     <div>
-                      <span className="block text-[8px] uppercase tracking-widest text-zinc-400 font-bold">Email Direct</span>
+                      <span className="block text-[8px] uppercase tracking-widest text-zinc-600 font-extrabold">Email Direct</span>
                       <span className="text-xs font-semibold text-black">harshit.workmain@gmail.com</span>
                     </div>
                   </a>
@@ -410,15 +410,15 @@ export default function Home() {
                     href="https://www.linkedin.com/in/harshit-singh-3b8467300/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-panel p-4 rounded-lg border border-zinc-100 hover:border-zinc-300 transition-all duration-300 flex items-center gap-4"
+                    className="glass-panel p-4 rounded-lg border border-zinc-200 hover:border-zinc-400 transition-all duration-300 flex items-center gap-4"
                   >
-                    <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-500">
+                    <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-700">
                       <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                       </svg>
                     </div>
                     <div>
-                      <span className="block text-[8px] uppercase tracking-widest text-zinc-400 font-bold">LinkedIn</span>
+                      <span className="block text-[8px] uppercase tracking-widest text-zinc-600 font-extrabold">LinkedIn</span>
                       <span className="text-xs font-semibold text-black">linkedin.com/in/harshit-singh-3b8467300</span>
                     </div>
                   </a>
@@ -428,15 +428,15 @@ export default function Home() {
                     href="https://github.com/harshitworkmain"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-panel p-4 rounded-lg border border-zinc-100 hover:border-zinc-300 transition-all duration-300 flex items-center gap-4"
+                    className="glass-panel p-4 rounded-lg border border-zinc-200 hover:border-zinc-400 transition-all duration-300 flex items-center gap-4"
                   >
-                    <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-500">
+                    <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-700">
                       <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                         <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                       </svg>
                     </div>
                     <div>
-                      <span className="block text-[8px] uppercase tracking-widest text-zinc-400 font-bold">GitHub Portfolio</span>
+                      <span className="block text-[8px] uppercase tracking-widest text-zinc-650 font-extrabold">GitHub Portfolio</span>
                       <span className="text-xs font-semibold text-black">github.com/harshitworkmain</span>
                     </div>
                   </a>
@@ -446,15 +446,15 @@ export default function Home() {
                     href="https://x.com/HarshitSin22346"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-panel p-4 rounded-lg border border-zinc-100 hover:border-zinc-300 transition-all duration-300 flex items-center gap-4"
+                    className="glass-panel p-4 rounded-lg border border-zinc-200 hover:border-zinc-400 transition-all duration-300 flex items-center gap-4"
                   >
-                    <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-500">
+                    <div className="h-8 w-8 rounded bg-zinc-100 flex items-center justify-center text-zinc-700">
                       <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                       </svg>
                     </div>
                     <div>
-                      <span className="block text-[8px] uppercase tracking-widest text-zinc-400 font-bold">X (Twitter)</span>
+                      <span className="block text-[8px] uppercase tracking-widest text-zinc-650 font-extrabold">X (Twitter)</span>
                       <span className="text-xs font-semibold text-black">x.com/HarshitSin22346</span>
                     </div>
                   </a>
@@ -462,44 +462,44 @@ export default function Home() {
               </div>
 
               {/* Right Column: Contact Form */}
-              <div className="glass-panel p-8 rounded-lg border border-zinc-100">
-                <h3 className="text-xs uppercase tracking-widest text-zinc-500 font-bold mb-6">
+              <div className="glass-panel p-8 rounded-lg border border-zinc-200">
+                <h3 className="text-xs uppercase tracking-widest text-zinc-700 font-extrabold mb-6">
                   Transmission Portal
                 </h3>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div className="flex flex-col gap-2">
-                    <label className="text-[9px] uppercase tracking-widest text-zinc-400 font-bold">Your Name</label>
+                    <label className="text-[9px] uppercase tracking-widest text-zinc-650 font-extrabold">Your Name</label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Nicola Tesla"
-                      className="w-full bg-zinc-50 border-b-2 border-zinc-200 rounded-none p-3 text-xs text-black placeholder-zinc-300 focus:outline-none focus:border-black transition-all duration-300"
+                      className="w-full bg-zinc-50 border-b-2 border-zinc-300 rounded-none p-3 text-xs text-black placeholder-zinc-400 focus:outline-none focus:border-black transition-all duration-300"
                     />
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[9px] uppercase tracking-widest text-zinc-400 font-bold">Your Email</label>
+                    <label className="text-[9px] uppercase tracking-widest text-zinc-650 font-extrabold">Your Email</label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="e.g. nicola@alternatecurrent.org"
-                      className="w-full bg-zinc-50 border-b-2 border-zinc-200 rounded-none p-3 text-xs text-black placeholder-zinc-300 focus:outline-none focus:border-black transition-all duration-300"
+                      className="w-full bg-zinc-50 border-b-2 border-zinc-300 rounded-none p-3 text-xs text-black placeholder-zinc-400 focus:outline-none focus:border-black transition-all duration-300"
                     />
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[9px] uppercase tracking-widest text-zinc-400 font-bold">Message Node</label>
+                    <label className="text-[9px] uppercase tracking-widest text-zinc-650 font-extrabold">Message Node</label>
                     <textarea
                       required
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Transmission contents..."
-                      className="w-full bg-zinc-50 border-b-2 border-zinc-200 rounded-none p-3 text-xs text-black placeholder-zinc-300 focus:outline-none focus:border-black transition-all duration-300 resize-none"
+                      className="w-full bg-zinc-50 border-b-2 border-zinc-300 rounded-none p-3 text-xs text-black placeholder-zinc-400 focus:outline-none focus:border-black transition-all duration-300 resize-none"
                     />
                   </div>
 
@@ -510,7 +510,7 @@ export default function Home() {
                       status === "success"
                         ? "bg-black text-white"
                         : status === "sending"
-                        ? "bg-zinc-200 text-zinc-400"
+                        ? "bg-zinc-300 text-zinc-600"
                         : "bg-black text-white hover:bg-zinc-800"
                     }`}
                   >
