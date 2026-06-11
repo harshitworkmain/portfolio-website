@@ -4,10 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { ArrowRight, Cpu, Activity, Compass, Mail, Send, Check, Brain, Server, Code2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/ui/PageTransition";
 import TechMatrix from "@/components/ui/TechMatrix";
 import StatusConsole from "@/components/ui/StatusConsole";
+import PhotoMarquee from "@/components/ui/PhotoMarquee";
 
 /* ────────────────────────────────────────────────────────
    VideoCard — reusable video preview + link component
@@ -100,6 +101,152 @@ function VideoCard({
 }
 
 /* ────────────────────────────────────────────────────────
+   PhoneFrame — portrait device mockup for vertical videos
+   ──────────────────────────────────────────────────────── */
+
+function PhoneFrame({
+  src,
+  title,
+  subtitle,
+}: {
+  src: string;
+  title: string;
+  subtitle: string;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [paused, setPaused] = useState(false);
+
+  const toggle = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setPaused(false);
+    } else {
+      videoRef.current.pause();
+      setPaused(true);
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-center gap-4 group">
+      {/* Phone shell */}
+      <div
+        className="relative rounded-[2rem] border-[6px] border-zinc-800 bg-black shadow-2xl overflow-hidden cursor-pointer transition-transform duration-500 group-hover:scale-[1.02]"
+        style={{ width: 200, height: 400 }}
+        onClick={toggle}
+      >
+        {/* Notch */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 w-20 h-5 bg-zinc-800 rounded-b-xl" />
+
+        {/* Video */}
+        <video
+          ref={videoRef}
+          src={src}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+        {/* Subtle overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+
+        {/* Play/Pause indicator on hover */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <div className="h-12 w-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
+            {paused ? (
+              <svg className="h-4 w-4 text-black ml-0.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,3 20,12 6,21" /></svg>
+            ) : (
+              <svg className="h-4 w-4 text-black" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></svg>
+            )}
+          </div>
+        </div>
+
+        {/* Bottom home indicator */}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-white/40" />
+      </div>
+
+      {/* Caption */}
+      <div className="text-center max-w-[200px]">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-black font-heading">{title}</h4>
+        <p className="text-[10px] text-zinc-600 mt-1 leading-snug">{subtitle}</p>
+      </div>
+    </div>
+  );
+}
+
+/* ────────────────────────────────────────────────────────
+   HeroAvatar — Profile photo with hover cross-fade
+   ──────────────────────────────────────────────────────── */
+
+function HeroAvatar() {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, delay: 0.5 }}
+      className="md:col-span-2 flex justify-center"
+    >
+      <div
+        className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-zinc-200 glass-panel shadow-lg cursor-pointer group"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Casual photo (default) */}
+        <AnimatePresence>
+          {!isHovered && (
+            <motion.div
+              key="casual"
+              initial={{ opacity: 0, rotateY: 90 }}
+              animate={{ opacity: 1, rotateY: 0 }}
+              exit={{ opacity: 0, rotateY: -90 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src="/pfp.jpeg"
+                alt="Harshit Singh"
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Professional photo (on hover) */}
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              key="professional"
+              initial={{ opacity: 0, rotateY: 90 }}
+              animate={{ opacity: 1, rotateY: 0 }}
+              exit={{ opacity: 0, rotateY: -90 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src="/images/about/profile/professional-photo-cropped.jpeg"
+                alt="Harshit Singh — Professional"
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Subtle ring glow on hover */}
+        <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-zinc-400/50 transition-all duration-500" />
+      </div>
+    </motion.div>
+  );
+}
+
+/* ────────────────────────────────────────────────────────
    Home Page
    ──────────────────────────────────────────────────────── */
 
@@ -180,23 +327,8 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Right — Profile Photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="md:col-span-2 flex justify-center"
-          >
-            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-zinc-200 glass-panel shadow-lg">
-              <Image
-                src="/pfp.jpeg"
-                alt="Harshit Singh"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </motion.div>
+          {/* Right — Profile Photo with hover cross-fade */}
+          <HeroAvatar />
         </div>
 
         {/* ═══════════════════════════════════════════════
@@ -267,10 +399,47 @@ export default function Home() {
               demoLabel="Watch on YouTube"
             />
           </div>
+
+          {/* STEMBOT Portrait Phone Frames */}
+          <div className="mt-10">
+            <h3 className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold mb-6 font-heading flex items-center gap-2">
+              <span className="h-px w-4 bg-zinc-300" />
+              STEMBOT — ROS 2 Autonomous Navigation
+            </h3>
+            <div className="flex flex-wrap justify-center gap-10 md:gap-16">
+              <PhoneFrame
+                src="/videos/stembot/stembot-ros2.mp4"
+                title="ROS 2 Navigation"
+                subtitle="Real-time SLAM & path planning with LiDAR"
+              />
+              <PhoneFrame
+                src="/videos/stembot/obstacle-avoidance-preview.mp4"
+                title="Obstacle Avoidance"
+                subtitle="Autonomous reactive navigation loop"
+              />
+            </div>
+          </div>
         </motion.div>
 
         {/* ═══════════════════════════════════════════════
-            SECTION 4 — Core Engineering Pillars
+            SECTION 4 — Infinite Photo Marquee
+           ═══════════════════════════════════════════════ */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.8 }}
+          className="mt-24"
+        >
+          <h2 className="text-xs uppercase tracking-widest text-zinc-650 font-bold mb-8 font-heading flex items-center gap-2">
+            <span className="h-px w-6 bg-zinc-350" />
+            Project & Competition Gallery
+          </h2>
+          <PhotoMarquee />
+        </motion.div>
+
+        {/* ═══════════════════════════════════════════════
+            SECTION 5 — Core Engineering Pillars
            ═══════════════════════════════════════════════ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -326,7 +495,7 @@ export default function Home() {
         </motion.div>
 
         {/* ═══════════════════════════════════════════════
-            SECTION 5 — Interactive Tech Stack Matrix
+            SECTION 6 — Interactive Tech Stack Matrix
            ═══════════════════════════════════════════════ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -343,7 +512,7 @@ export default function Home() {
         </motion.div>
 
         {/* ═══════════════════════════════════════════════
-            SECTION 6 — System Status Console
+            SECTION 7 — System Status Console
            ═══════════════════════════════════════════════ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -360,7 +529,7 @@ export default function Home() {
         </motion.div>
 
         {/* ═══════════════════════════════════════════════
-            SECTION 7 — Contact (merged from /contact)
+            SECTION 8 — Contact (merged from /contact)
            ═══════════════════════════════════════════════ */}
         <div id="contact" className="scroll-mt-20">
           <motion.div

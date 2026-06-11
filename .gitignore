@@ -34,3 +34,7 @@ next-env.d.ts
 
 # Large video files (exceed GitHub 100MB limit)
 public/videos/SPARC.mp4
+
+# scratch directory for temporary developer files
+/scratch/
+
