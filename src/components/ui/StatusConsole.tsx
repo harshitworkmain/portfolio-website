@@ -429,11 +429,11 @@ export default function StatusConsole() {
       {/* Console body */}
       <div
         ref={scrollRef}
-        className="p-4 flex flex-col gap-1.5 max-h-[420px] overflow-y-auto"
+        className="p-3 sm:p-4 flex flex-col gap-1.5 max-h-[420px] overflow-y-auto overflow-x-hidden"
         onClick={() => inputRef.current?.focus()}
       >
         {/* Boot header */}
-        <div className="font-mono text-[10px] text-zinc-400 mb-2">
+        <div className="font-mono text-[9px] sm:text-[10px] text-zinc-400 mb-2">
           <span className="text-zinc-500">$</span> diagnostics --run-all --format=compact
         </div>
 
@@ -453,7 +453,7 @@ export default function StatusConsole() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
-            className="font-mono text-[10px] text-zinc-400 mt-3 pt-2 border-t border-zinc-200"
+            className="font-mono text-[9px] sm:text-[10px] text-zinc-400 mt-3 pt-2 border-t border-zinc-200"
           >
             <span className="text-emerald-500">✓</span> All systems operational — {telemetryLines.length} modules verified
           </motion.div>
@@ -467,7 +467,7 @@ export default function StatusConsole() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ delay: 0.3, duration: 0.4 }}
-              className="font-mono text-[10px] text-zinc-400 mt-2 pt-2 border-t border-zinc-100"
+              className="font-mono text-[9px] sm:text-[10px] text-zinc-400 mt-2 pt-2 border-t border-zinc-100"
             >
               <span className="text-sky-500">ℹ</span> Interactive shell ready — type <span className="text-zinc-600 font-semibold">help</span> to see available commands
             </motion.div>
@@ -478,7 +478,7 @@ export default function StatusConsole() {
         {outputHistory.map((line) => (
           <div
             key={line.id}
-            className={`font-mono text-[11px] leading-relaxed whitespace-pre ${getLineColor(line.type)}`}
+            className={`font-mono text-[9px] sm:text-[10px] md:text-[11px] leading-relaxed whitespace-pre-wrap break-words ${getLineColor(line.type)}`}
           >
             {line.text}
           </div>
@@ -486,7 +486,7 @@ export default function StatusConsole() {
 
         {/* Active input prompt */}
         {bootDone && (
-          <div className="flex items-center gap-0 font-mono text-[11px] mt-1">
+          <div className="flex items-center gap-0 font-mono text-[9px] sm:text-[10px] md:text-[11px] mt-1">
             <span className="text-emerald-500 shrink-0">guest@harshit_portfolio</span>
             <span className="text-zinc-400 shrink-0">:~$&nbsp;</span>
             <input
@@ -497,7 +497,7 @@ export default function StatusConsole() {
               onKeyDown={handleKeyDown}
               spellCheck={false}
               autoComplete="off"
-              className="flex-1 bg-transparent border-none outline-none text-zinc-700 font-mono text-[11px] caret-emerald-500 placeholder-zinc-300"
+              className="flex-1 bg-transparent border-none outline-none text-zinc-700 font-mono text-[9px] sm:text-[10px] md:text-[11px] caret-emerald-500 placeholder-zinc-300 min-w-0"
               placeholder="type a command..."
             />
           </div>

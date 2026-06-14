@@ -180,7 +180,7 @@ This document serves as the single, high-fidelity reference file containing all 
 
 ### Visual Theme Preferences
 *   **Aesthetic Tone:** "Inverted Universe" — gallery-white canvas (`#ffffff`) backdrop populated by deep-black/charcoal-zinc elements, and subtle brand-colored highlights.
-*   **Layout Structure:**
+*   **Layout Structure & Routing:**
     *   **3D Interactive Backdrop:** WebGL interstellar-style black hole and suspended graphite-like dust particles built using React Three Fiber (R3F) and Three.js, responding dynamically to scroll depth and mouse cursor position.
     *   **HTML Glassmorphic Panels:** Clean translucent glass boards (`bg-white/45`) with `backdrop-blur-md` filters and thin borders (`border-zinc-100`), styled with smooth entry and hover animations.
     *   **Typography:** Displays headlines in uppercase **Space Grotesk** for a geometric, technical feel, balanced by **Plus Jakarta Sans** for body copy and **Geist Mono** for telemetry elements.
@@ -189,6 +189,17 @@ This document serves as the single, high-fidelity reference file containing all 
         *   **Tech Stack Matrix:** 5-category SVG-driven container showing official developer tool and language logos with hover magnification.
         *   **Core Engineering Pillars:** Three distinct card areas emphasizing Embedded Intelligence, Applied ML & Analytics, and Full-Stack Systems.
         *   **Unified Contact Block:** Integrated directly at the bottom of the homepage (`#contact`) with Navbar hash routing, smooth-scroll behavior, and client-side redirects from auxiliary routes.
+    *   **Achievements Timeline Subpage (`/achievements`):**
+        *   **Vertical Wavy Telemetry Timeline:** Replaces the standard straight line with a dynamic, winding sine-wave SVG path (`WAVE_AMPLITUDE = 40`) that stretches across the measured container height (tracked via `ResizeObserver` and drawn dynamically via `useMemo` path calculations). It fills dynamically based on scroll position using Framer Motion's `useScroll` (configured with `offset: ["start end", "end 85%"]` to guarantee 100% path length fill when scrolled to the end) and `useSpring` for smooth interpolation.
+        *   **Hybrid Alternating Layout:** On desktop viewports (`md` and up), utilizes a 3-column layout structure (`grid grid-cols-[1fr_240px_1fr] items-center`) that staggers cards on the left (even indices) and right (odd indices). On mobile devices, uses staggered margin offsets (`w-[85%] mr-auto pr-1` vs `w-[85%] ml-auto pl-1`) to keep cards legible and preserve visibility of the central timeline path.
+        *   **Pulsing Node Alignment:** Telemetry node dot coordinates are mathematically locked to the wave peaks: `leftOffset = isLeft ? 50 + amplitude : 50 - amplitude` (as a percentage of the center column width), ensuring perfect alignment on all screen sizes.
+        *   **Telemetry Badges & Date Headers:** Achievement cards render telemetry details with a custom flexbox header containing both the system metadata and the event's date: `[ HASH: ... | SCOPE: ... | STATUS: ... ]` and `[ DATE: ... ]`.
+        *   **Chronological Ordering & Team Media Gallery:** Events are sorted in descending chronological order (SIH-2025 Dec 2025 → VITISH'25 Sept 2025 → Innovate X Impact Mar 2025 → BIS Mar 2025 → Technovation Feb 2025). The `MediaGallery` instances prioritize group/team photographs at index 0 (active image) with secondary project or hardware screenshots stored at index 1.
+        *   **Overlay Lightbox:** Triggers on featured image or `+X` click, creating a high-contrast dark overlay modal locking main scroll. Fully supports left/right keyboard navigation, closing on `Escape` key, click close triggers, and a bottom horizontal tray of all event/project photos.
+*   **Mobile Responsive Optimizations:**
+    *   **Responsive Three.js/2D Canvas:** Dynamically detects mobile screens (`w < 768`) to scale the black hole to `0.65×` and translate it down (`y = -2.0` in 3D group, `+100px cy` in 2D fallback canvas). This prevents the central black hole from covering the main landing texts.
+    *   **Status Console Safeguards:** Scales down console output text to `text-[9px] sm:text-[10px] md:text-[11px]` and replaces `whitespace-pre` with `whitespace-pre-wrap break-words` to eliminate horizontal viewport bleeding.
+    *   **Glass Panel Opacity Boost:** Raises `.glass-panel` background opacity from `0.45` to `0.85` on mobile query screens under 768px wide. This guarantees text contrast and legibility over the active background animation.
 
 ### Copywriting Rules
 *   **Quantifiable Impact First:** Never write generic descriptions. Focus strictly on numbers, response latencies, data throughputs, and physical percentage changes (e.g. *"...reduced collision events by 80% with sub-50 ms latencies"*).

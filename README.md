@@ -36,6 +36,8 @@ Flipping the traditional dark-mode space aesthetic, this design system implement
 3. **Core Engineering Pillars Grid:** Replaces standard text blocks with dedicated cards outlining core principles: Embedded Intelligence, Applied ML & Analytics, and Full-Stack Systems.
 4. **Optimized Video Demonstrations:** Includes lightweight, cropped highlight previews (e.g. SPARC gesture translation preview compressed with FFmpeg) looping natively in HTML5, with modals pointing to unlisted YouTube demo videos.
 5. **Unified Contact System:** Integrated directly at the bottom of the home page, backed by automatic Navbar scroll routing (hash-anchors) and server redirects.
+6. **Telemetry Achievements Timeline (`/achievements`):** An interactive vertical timeline featuring a dynamic sine-wave SVG path that fills smoothly on scroll (using Framer Motion `useScroll` + `useSpring`). Features a hybrid alternating grid layout (3-column grid on desktop, offset margins on mobile) where telemetry node dots are mathematically locked to the wave's peaks. Displays chronologically sorted events with custom monospace telemetry headers (containing date, scope, and status details), inline multi-media galleries with team/group photos as primary featured thumbnails, and a high-contrast dark Lightbox overlay modal supporting full keyboard and mouse navigation.
+7. **Mobile-Responsive Adaptations:** Responsive scaling (`0.65×` scale and vertical offset translation) for both the Three.js 3D backdrop scene and the 2D canvas fallback, as well as responsive text sizing, whitespace-wrapping safeguards for terminal feeds, and dynamically increased glass panel opacities for enhanced mobile text legibility.
 
 ---
 

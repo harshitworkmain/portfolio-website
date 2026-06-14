@@ -321,7 +321,7 @@ export default function TechMatrix() {
   return (
     <div className="flex flex-col gap-6">
       {/* Category Tabs */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
         {categories.map((cat, i) => (
           <button
             key={cat.label}

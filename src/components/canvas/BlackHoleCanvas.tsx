@@ -1,6 +1,6 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useMemo, useState, useEffect, useCallback, Suspense } from "react";
 import { usePathname } from "next/navigation";
 import * as THREE from "three";
@@ -230,18 +230,29 @@ function SuspendedParticles({ count = 1500 }) {
   );
 }
 
+function ResponsiveBlackHole() {
+  const { size } = useThree();
+  const isMobile = size.width < 768;
+  return (
+    <group
+      scale={isMobile ? 0.65 : 1}
+      position={isMobile ? [0, -2.0, 0] : [0, 0, 0]}
+    >
+      <AccretionDisk count={isMobile ? 6000 : 12000} />
+      <PhotonRing count={isMobile ? 1000 : 2000} />
+      <LensingArc count={isMobile ? 1500 : 2500} />
+      <SingularityCore />
+    </group>
+  );
+}
+
 function Scene({ isHome }: { isHome: boolean }) {
   return (
     <>
       <ambientLight intensity={0.1} />
       <CameraRig />
       {isHome ? (
-        <>
-          <AccretionDisk count={12000} />
-          <PhotonRing count={2000} />
-          <LensingArc count={2500} />
-          <SingularityCore />
-        </>
+        <ResponsiveBlackHole />
       ) : (
         <SuspendedParticles count={1500} />
       )}
@@ -259,8 +270,10 @@ function CanvasFallback({ isHome }: { isHome: boolean }) {
 
   const drawBlackHole = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number, time: number) => {
     ctx.clearRect(0, 0, w, h);
-    const cx = w / 2, cy = h / 2;
-    const scale = Math.min(w, h) / 5;
+    const isMobile = w < 768;
+    const cx = w / 2;
+    const cy = isMobile ? h / 2 + 100 : h / 2;
+    const scale = (Math.min(w, h) / 5) * (isMobile ? 0.65 : 1);
 
     // Accretion disk — multiple elliptical rings with varying opacity
     const diskTilt = 0.28;

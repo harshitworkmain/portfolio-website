@@ -81,6 +81,13 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.12);
 }
 
+/* Mobile: boost glass-panel opacity so text stays readable over 3D/2D backdrop */
+@media (max-width: 767px) {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+  }
+}
+
 /* Canvas fade mask */
 .canvas-mask {
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);

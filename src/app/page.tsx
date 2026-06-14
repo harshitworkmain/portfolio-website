@@ -194,6 +194,7 @@ function HeroAvatar() {
         className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-zinc-200 glass-panel shadow-lg cursor-pointer group"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={() => setIsHovered((prev) => !prev)}
       >
         {/* Casual photo (default) */}
         <AnimatePresence>
