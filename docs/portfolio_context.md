@@ -196,6 +196,15 @@ This document serves as the single, high-fidelity reference file containing all 
         *   **Telemetry Badges & Date Headers:** Achievement cards render telemetry details with a custom flexbox header containing both the system metadata and the event's date: `[ HASH: ... | SCOPE: ... | STATUS: ... ]` and `[ DATE: ... ]`.
         *   **Chronological Ordering & Team Media Gallery:** Events are sorted in descending chronological order (SIH-2025 Dec 2025 → VITISH'25 Sept 2025 → Innovate X Impact Mar 2025 → BIS Mar 2025 → Technovation Feb 2025). The `MediaGallery` instances prioritize group/team photographs at index 0 (active image) with secondary project or hardware screenshots stored at index 1.
         *   **Overlay Lightbox:** Triggers on featured image or `+X` click, creating a high-contrast dark overlay modal locking main scroll. Fully supports left/right keyboard navigation, closing on `Escape` key, click close triggers, and a bottom horizontal tray of all event/project photos.
+        *   **LinkedIn Integration**: Features custom "View Post on LinkedIn" buttons styled with the official LinkedIn vector logo, dynamic hover state transitions, and responsive inline container setups.
+    *   **Projects Subpage (`/projects`):**
+        *   **Conceptual Ordering**: Arranged to showcase heavy AI/ML and Robotics work first (SPARC ➔ TRIDENT ➔ DrishtiGuide ➔ Weather Risk AI ➔ Terrain Scout ➔ Stembot ➔ GNOME Stocks ➔ NeuroBridge AI) to emphasize system engineering capabilities.
+        *   **Autoplay Video Hover Previews**: Project cards with demo media feature quiet, looping autoplay videos (`videoPreview`) which transition smoothly on mouse hover, overlaying a red "LIVE" recording telemetry badge.
+        *   **Graceful Media Fallbacks**: Projects with pending cover media show an elegant telemetry-themed `[ COVER PENDING ]` fallback via image `onError` handlers.
+        *   **Detail Specs Modal Console**:
+            *   **Tab 1 (Architecture Flowcharts)**: Inline, responsive SVG flow diagrams mapped directly in React coordinates. Visual design features slate grey grid panels, thin dotted flow channels, active arrowheads, and highlighted primary processor blocks.
+            *   **Tab 2 (Media Console)**: Interactive image carousel and video preview player.
+            *   **Tab 3 (Technical Arsenal)**: Full lists of resume-synced technology tags paired with quick links for Source Code, Live App, and Demo links.
 *   **Mobile Responsive Optimizations:**
     *   **Responsive Three.js/2D Canvas:** Dynamically detects mobile screens (`w < 768`) to scale the black hole to `0.65×` and translate it down (`y = -2.0` in 3D group, `+100px cy` in 2D fallback canvas). This prevents the central black hole from covering the main landing texts.
     *   **Status Console Safeguards:** Scales down console output text to `text-[9px] sm:text-[10px] md:text-[11px]` and replaces `whitespace-pre` with `whitespace-pre-wrap break-words` to eliminate horizontal viewport bleeding.
