@@ -22,6 +22,7 @@ interface Achievement {
   credentialLabel: string;
   images: string[];
   date: string;
+  linkedinUrl?: string;
 }
 
 const achievements: Achievement[] = [
@@ -39,6 +40,8 @@ const achievements: Achievement[] = [
       "https://drive.google.com/file/d/1Vy3qPMbipSNLYGE3GdyYMsqRPwHSYtPD/view?usp=sharing",
     credentialLabel: "SIH'25 Certificate",
     date: "Dec 8 - 12, 2025",
+    linkedinUrl:
+      "https://www.linkedin.com/posts/samriddhi-ganguly-2b173929a_sih2025-smartindiahackathon-indiansignlanguage-ugcPost-7409916818678775808-g_VX?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg",
     images: [
       "/images/achievements/sih/sih-final-teamPhoto.jpeg",
       "/images/projects/sparc/sparc-system.jpeg",
@@ -66,6 +69,8 @@ const achievements: Achievement[] = [
     credential: "",
     credentialLabel: "",
     date: "Sept 26 - 27, 2025",
+    linkedinUrl:
+      "https://www.linkedin.com/posts/harshit-singh-3b8467300_vitish25-trident-innovation-activity-7386495735090798592-ISqh?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg",
     images: [
       "/images/achievements/vitish25/trident-teamPhoto.jpeg",
       "/images/projects/trident/trident-rov-dashboard.jpeg",
@@ -85,6 +90,8 @@ const achievements: Achievement[] = [
     credential: "",
     credentialLabel: "",
     date: "Mar 13, 2025",
+    linkedinUrl:
+      "https://www.linkedin.com/posts/namo-nirvana_innovateximpact2025-teamdrishtiguide-teamterrainscout-ugcPost-7319078445013970944-EIk7?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg",
     images: [
       "/images/achievements/innovate-x-impact/InnovateXImpact-teamPhoto.jpeg",
       "/images/projects/drishtiguide/drishtiguide-components.jpeg",
@@ -105,6 +112,8 @@ const achievements: Achievement[] = [
     credential: "",
     credentialLabel: "",
     date: "Mar 11, 2025",
+    linkedinUrl:
+      "https://www.linkedin.com/posts/namo-nirvana_namonirvana-bisshowcase-terrainscout-ugcPost-7317814904881602560-8oUv?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg",
     images: [
       "/images/achievements/bis/BIS-project-showcase.jpeg",
       "/images/projects/terrain-scout/technovation-terrain-scout-rover1.jpeg",
@@ -125,6 +134,8 @@ const achievements: Achievement[] = [
     credential:
       "https://drive.google.com/file/d/1AkRdc0y1Qdw9cImu5395G5RwdB8vPJuo/view?usp=sharing",
     credentialLabel: "Technovation Certificate",
+    linkedinUrl:
+      "https://www.linkedin.com/posts/technovation25-innovation-teamnamonirvana-ugcPost-7299144269548728320-Sk7x/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg",
     date: "Feb 21, 2025",
     images: [
       "/images/achievements/technovation/technovation-teamPhoto.jpeg",
@@ -419,6 +430,21 @@ function CardContent({ item }: { item: Achievement }) {
           >
             <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 15l-2 5l1-3h2l1 3l-2-5z" /><circle cx="12" cy="9" r="6" /></svg>
             {item.credentialLabel}
+          </a>
+        )}
+
+        {/* LinkedIn Post Link */}
+        {item.linkedinUrl && (
+          <a
+            href={item.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-3 px-3.5 py-2 rounded text-[10px] font-bold uppercase tracking-widest bg-zinc-100 hover:bg-black hover:text-white border border-zinc-300 text-zinc-700 transition-all duration-300 w-fit"
+          >
+            <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            View Post on LinkedIn
           </a>
         )}
       </div>
