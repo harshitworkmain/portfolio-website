@@ -171,18 +171,21 @@ This document serves as the single, high-fidelity reference file containing all 
     *   **Cadet Promotions & Training:**
         *   Promoted from Cadet to Lance Corporal (Republic Day 2025) and subsequently to Corporal (Independence Day 2025). Service concluded in November 2025.
         *   *Camp Honors (CATC-25):* Secured Triple Accolades: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*.
-    *   **Key Guard of Honor & Piloting Achievements:**
+    *   **Key Guard of Honor, Piloting, & Event Coordination Achievements:**
         *   **Valedictory Address Salami Shastra (July 2025) — Chief Minister of Goa Visit:** Selected for the elite Salami Shastra (Guard of Honor) presenting official salute and parade honors to Chief Minister Dr. Pramod Sawant during the "Road Map to VIKSIT BHARAT" national conference at VIT Chennai.
             *   *Related Assets:* `public/images/leadership/ncc/salami-shastra-to-goa-cm*.jpeg`
         *   **Parakram Divas Piloting & Tribute (Jan 23, 2025):** Handled piloting logistics and stood guard of honor in saluting the parents of Ashok Chakra recipient Major Mukund Varadarajan (Shri R. Varadarajan and Smt. Geetha Varadarajan) during the Netaji Subhas Chandra Bose commemoration alongside military dignitaries (Lt. Col. Dr. Rajan Gupta and Former Chief of Staff Shri M. Indrabalan).
             *   *Related Assets:* `public/images/leadership/ncc/piloting-maj-varadrajans-parents-army-officers*.jpeg`
-        *   **OTA Chennai Passing Out Parade Visits & Training:** Coordinated and participated in military infrastructure camps and training visits at the Officers Training Academy (OTA) Chennai. Interacted with senior cadets and explored parade protocols guided by the Academy Cadet Adjutant on the drill square.
+        *   **OTA Chennai Passing Out Parade Visits & Training:** Coordinated and participated in military infrastructure camps and training visits at the Officers Training Academy (OTA) Chennai. Interacted with senior OTA instructors, officer cadets (including notable VIT alumni), and army officers on the drill square to study parade protocols and command drills.
             *   *Related Assets:* `public/images/leadership/ncc/ota-adjutants-parade-visit*.jpeg`
-*   **Indian Coast Guard Fitness Festival 2025 Event Coordinator:**
-
-    *   Awarded Certificate of Appreciation for coordinating logistics, registration, and event scheduling for **1,000+ elite competitors** (Armed forces, corporate, and university groups).
+        *   **Coast Guard Fitness Festival (CGFF) 2025 (Feb 15, 2025):** Organized by VIT NCC in collaboration with the Indian Coast Guard (Region East) for the 49th Indian Coast Guard Raising Day. Coordinated logistics, ticketing, and operations for 700+ participants (NCC cadets, armed forces, corporates, students). 
+            *   *Activities:* Managed the Coast Guard Mariners Challenge (military-grade obstacle endurance test), bootcamp workouts, Zumba zone, and live entertainment brackets (DJ, bands). Cash prize pool of ₹2 Lakhs.
+            *   *Logistics:* Handled ticketing via BookMyShow Insider (Individual: ₹100, Team of 5: ₹500, General Pass: ₹10).
+            *   *Dignitaries:* Moderated the valedictory hosted by Dr. J. Radhakrishnan (IAS, Additional Chief Secretary, Govt of Tamil Nadu) and Inspector General Datwinder Singh Saini (TM, Commander of Indian Coast Guard Region East).
+            *   *Related Assets:* `public/images/leadership/coast-guard/coast-guard-fitness-festival-2025-*.jpeg`
 *   **Sports:** University and national-level basketball player (Secured 3rd Place Men's Category, Founder's Birthday Trophy 2024 at SRM IST).
 *   **Social Outreach (VITeach VITC):** Core volunteer at *VITeach*, leading tutoring, environmental campaigns, and community outreach drives.
+
     *   **VITeach Digital Assets:**
         *   Official Website: [viteach.in](https://viteach.in/)
         *   Secondary Platform: [viteach-website-ten.vercel.app/content](https://viteach-website-ten.vercel.app/content)

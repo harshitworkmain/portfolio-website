@@ -81,8 +81,10 @@
 *   **NCC Cadet Leadership (Corporal rank held Nov 2023 – Nov 2025):** 
     *   Selected for elite **Salami Shastra** (Guard of Honor) presenting salute and parade honors to Chief Minister of Goa Dr. Pramod Sawant during his official campus visit in July 2025.
     *   Led piloting logistics and stood Guard of Honor for Shri R. Varadarajan (father of Ashoka Chakra recipient Major Mukund AC) during Parakram Divas commemoration in January 2025.
-    *   Coordinated visits and training square drills at Officers Training Academy (OTA) Chennai.
+    *   Coordinated visits and training square drills at Officers Training Academy (OTA) Chennai, interacting with senior instructors, officer cadets (VIT alumni), and army officers.
+    *   Organized the **Coast Guard Fitness Festival (CGFF) 2025** (700+ participants, BMS Insider ticketing, ₹2L cash prizes) for the 49th Raising Day. Moderated the valedictory panel hosted by ACS Dr. J. Radhakrishnan (IAS) and IG Datwinder Singh Saini (TM).
     *   Secured **NCC CATC-25 Camp Triple Accolades**: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*.
+
 *   **Social Outreach (VITeach VITC):** Led logistics and volunteering operations for key educational and community drives:
     *   *Ansaldo Academy SDG 4 Campaign (Oct 2024):* Taught stream selection mentorship, mindfulness/yoga, and run awareness campaigns.
     *   *Sirudhavoor Donation Drive (Apr 2025):* Coordinated stationary donation logistics for Sirudhavoor Government High School.
