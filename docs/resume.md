@@ -86,7 +86,7 @@
     *   Co-coordinated registration and piloted VIPs for the **Coast Guard Fitness Festival (CGFF) 2025** organized by the Indian Coast Guard (Region East). [[CGFF'25 Certificate](https://drive.google.com/file/d/1zLqcapaGHt8TDJJSpMiYdnpmeqqUG60l/view?usp=sharing)]
     *   Secured **NCC CATC-25 Camp Triple Accolades**: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*. [[CATC'25 Certificate](https://drive.google.com/file/d/1Uu_nhReVK7h4xlHu3vYChe7acoKf6WPa/view?usp=sharing)]
 *   **Sports & Athletics:**
-    *   **Basketball Player (Sports Club VITC):** Aug 2023 - Jun 2025 (1 yr 11 mos). Secured 3rd Place Men's Category, SRM IST Founder's Birthday Trophy 2024. [[Merit Certificate](https://drive.google.com/file/d/1Atnfj2h5QbCv8gZkVAOXkYOoSgdbJVkn/view?usp=sharing)]
+    *   **Basketball Player:** Apr 2018 - Jun 2025 (Spanning school & college levels). Secured 3rd Place Men's Category, SRM IST Founder's Birthday Trophy 2024 (Sports Club VITC). [[Merit Certificate](https://drive.google.com/file/d/1Atnfj2h5QbCv8gZkVAOXkYOoSgdbJVkn/view?usp=sharing)]
     *   **Marathon Runner:** Active participation in endurance runs. [[Marathon Certificate](https://drive.google.com/file/d/1r3xe2khNXcbYy3_yC9T7Dnl15S3bTtin/view?usp=sharing)]
 *   **Social Outreach (VITeach VITC):** FFCS Member | Part-time | Jan 2024 - Mar 2025 (1 yr 3 mos). Led logistics and volunteering operations for key educational and community drives.
 

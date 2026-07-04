@@ -201,8 +201,8 @@ This document serves as the single, high-fidelity reference file containing all 
             *   *Activities:* Co-coordinated the Coast Guard Mariners Challenge (obstacle endurance test), bootcamp workouts, Zumba zone, and live entertainment brackets (DJ, bands) for 700+ competitors with a ₹2 Lakhs prize pool.
             *   *Related Assets:* `public/images/leadership/coast-guard/coast-guard-fitness-festival-2025-*.jpeg`
 
-*   **Sports:** University and national-level basketball player (Sports Club VITC | Part-time | Aug 2023 - Jun 2025, 1 yr 11 mos).
-    *   **Founder's Birthday Trophy 2024:** Secured 3rd Place Men's Category at SRM IST, organized by Directorate of Sports. [[SRM IST Certificate](https://drive.google.com/file/d/1Atnfj2h5QbCv8gZkVAOXkYOoSgdbJVkn/view?usp=sharing)]
+*   **Sports:** School, university, and national-level basketball player (Apr 2018 - Jun 2025 | Spanning school & college levels).
+    *   **Founder's Birthday Trophy 2024 (College Basketball - Sports Club VITC):** Secured 3rd Place Men's Category at SRM IST, organized by Directorate of Sports. [[SRM IST Certificate](https://drive.google.com/file/d/1Atnfj2h5QbCv8gZkVAOXkYOoSgdbJVkn/view?usp=sharing)]
 *   **Athletics:** Marathon runner. [[Marathon Certificate](https://drive.google.com/file/d/1r3xe2khNXcbYy3_yC9T7Dnl15S3bTtin/view?usp=sharing)]
 *   **Social Outreach (VITeach VITC):** Core volunteer & FFCS Member | Part-time | Jan 2024 - Mar 2025 (1 yr 3 mos). Leading tutoring, environmental campaigns, and community outreach drives.
     *   **VITeach Digital Assets:**
