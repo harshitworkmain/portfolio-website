@@ -167,16 +167,19 @@ This document serves as the single, high-fidelity reference file containing all 
     *   **Namo Nirvana Operational Milestones:**
         *   **Official Special Team Recognition:** Led the coordination to achieve official recognition for Team Namo Nirvana as the official Robotics Special Team of VIT Chennai.
             *   *Related Assets:* `public/images/leadership/namo-nirvana/officially-recognized-as-special-team.jpeg`, `nn-logo*.jpeg`
-        *   **Recruitment & Orientation (Deputy Operations Lead):** Structured and conducted multi-stage recruitment interviews. Formally addressed and oriented the new engineering recruits to align them with operational goals.
+        *   **Recruitment & Orientation (Deputy Operations Lead):** Structured and conducted multi-stage recruitment interviews for departments spanning Programming, Electronics, Mechatronics, Research & Science, Media & Outreach, and Operations. Formally addressed and oriented the new engineering recruits to align them with operational goals.
             *   *Related Assets:* `public/images/leadership/namo-nirvana/special-team-recruit-nterview*.jpeg`, `new-recruits-addressing*.jpeg`
+            *   *Related LinkedIn Post:* [Official Recruitment Post](https://www.linkedin.com/posts/namo-nirvana_namonirvana-vitchennai-robotics-activity-7351808302894272513-nrfe?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg)
         *   **College Special Team Showcase:** Coordinated showcase exhibitions of robotics projects for the university leadership, including a project review by the Pro-VC.
             *   *Related Assets:* `public/images/leadership/namo-nirvana/college-special-team-showcase-grp-photo.jpeg`, `college-special-team-showcase-proVC-review.jpeg`
+            *   *Related LinkedIn Post:* [Harshit's Showcase Repost](https://www.linkedin.com/posts/harshit-singh-3b8467300_namonirvana-futurecreators-roboticsrevolution-activity-7322695131084595200-N7Kp?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg)
         *   **Merchandise & Branding Logistics:** Handled logistics and design coordination for official team merchandise, including team caps.
             *   *Related Assets:* `public/images/leadership/namo-nirvana/nn-cap-merch.jpeg`
         *   **Tenure Conclusion & Dean Reviews:** Stood for final review with the School Dean and Associate Dean at the close of operational tenure.
             *   *Related Assets:* `public/images/leadership/namo-nirvana/team-photo-with-school-dean-assocDean-as-tenure-ends*.jpeg`
         *   **Power Transfer to Juniors:** Led the formal transition and hand-off ceremony transferring operations and leadership to the junior core team.
             *   *Related Assets:* `public/images/leadership/namo-nirvana/power-transfer-to-juniors*.jpeg`
+
 *   **NCC Cadet Leadership (1 Tamil Nadu Battalion NCC):**
     *   **Service Timeline:** Nov 2023 – Nov 2025 (Corporal rank held).
     *   **NCC Digital Assets:**
