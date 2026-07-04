@@ -2,6 +2,7 @@
 
 import { Award, Briefcase, GraduationCap, Trophy, ChevronRight } from "lucide-react";
 import PageTransition from "@/components/ui/PageTransition";
+import ScrollToTop from "@/components/ScrollToTop";
 import { motion } from "framer-motion";
 
 export default function About() {
@@ -191,6 +192,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <ScrollToTop />
     </PageTransition>
   );
 }

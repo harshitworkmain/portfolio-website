@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 import { ArrowRight, Cpu, Activity, Compass, Mail, Send, Check, Brain, Server, Code2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/ui/PageTransition";
+import ScrollToTop from "@/components/ScrollToTop";
 import TechMatrix from "@/components/ui/TechMatrix";
 import StatusConsole from "@/components/ui/StatusConsole";
 import PhotoMarquee from "@/components/ui/PhotoMarquee";
@@ -705,6 +706,7 @@ export default function Home() {
         </div>
 
       </div>
+      <ScrollToTop />
     </PageTransition>
   );
 }
