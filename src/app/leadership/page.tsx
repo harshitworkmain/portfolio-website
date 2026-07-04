@@ -148,6 +148,7 @@ const nccEvents: NCCEvent[] = [
     description:
       "Organized by the Indian Coast Guard (Region East) for the 49th Raising Day. Under VIT NCC, assisted with student coordination, registration management, and piloted chief guests Dr. J. Radhakrishnan (IAS) and IG Datwinder Singh Saini (TM, ICG Region East). Managed obstacle courses, zumba, and ₹2L prize pool for 700+ participants.",
     images: [
+      "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-10.jpeg",
       "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-1.jpeg",
       "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-2.jpeg",
       "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-groupphoto-3.jpeg",
@@ -157,7 +158,6 @@ const nccEvents: NCCEvent[] = [
       "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-7.jpeg",
       "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-8.jpeg",
       "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-9.jpeg",
-      "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-10.jpeg",
       "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-11.jpeg",
       "/images/leadership/coast-guard/coast-guard-fitness-festival-2025-Radhakrishnan-12.jpeg",
     ],
@@ -172,8 +172,8 @@ const nccEvents: NCCEvent[] = [
     description:
       "Selected for the elite Guard of Honor presenting parade salute and honors to Dr. Pramod Sawant, Chief Minister of Goa, during his two-day national conference visit on 'Road Map to VIKSIT BHARAT' at VIT Chennai campus.",
     images: [
-      "/images/leadership/ncc/salami-shastra-to-goa-cm1.jpeg",
       "/images/leadership/ncc/salami-shastra-to-goa-cm2.jpeg",
+      "/images/leadership/ncc/salami-shastra-to-goa-cm1.jpeg",
       "/images/leadership/ncc/salami-shastra-to-goa-cm3.jpeg",
       "/images/leadership/ncc/salami-shastra-to-goa-cm4.jpeg",
     ],
@@ -185,8 +185,8 @@ const nccEvents: NCCEvent[] = [
     description:
       "Piloted the parents of Ashok Chakra (Posthumous) recipient Major Mukund Varadarajan AC — Shri R. Varadarajan and Smt. Geetha Varadarajan — alongside senior army officers during the patriotic tribute event at VIT Chennai.",
     images: [
-      "/images/leadership/ncc/piloting-maj-varadrajans-parents-army-officers1.jpeg",
       "/images/leadership/ncc/piloting-maj-varadrajans-parents-army-officers2.jpeg",
+      "/images/leadership/ncc/piloting-maj-varadrajans-parents-army-officers1.jpeg",
     ],
   },
   {
@@ -196,9 +196,9 @@ const nccEvents: NCCEvent[] = [
     description:
       "Visited Officers Training Academy (OTA) Chennai for the Passing Out Parade. Explored military infrastructure, drill squares, and interacted with senior OTA instructors, officer cadets (including VIT alumni), and army officers.",
     images: [
+      "/images/leadership/ncc/ota-adjutants-parade-visit3.jpeg",
       "/images/leadership/ncc/ota-adjutants-parade-visit1.jpeg",
       "/images/leadership/ncc/ota-adjutants-parade-visit2.jpeg",
-      "/images/leadership/ncc/ota-adjutants-parade-visit3.jpeg",
     ],
   },
 ];
@@ -263,8 +263,8 @@ const viteachCampaigns: OutreachCampaign[] = [
     description:
       "Coordinated educational camps at Ansaldo Academy (Thazhambur, Chennai). Ran interactive curiosity sessions, hygiene awareness, nutrition workshops with yoga, and 9th-grade academic stream mentoring.",
     images: [
-      "/images/leadership/viteach/ansaldo1.jpeg",
       "/images/leadership/viteach/ansaldo2.jpeg",
+      "/images/leadership/viteach/ansaldo1.jpeg",
       "/images/leadership/viteach/ansaldo3.jpeg",
       "/images/leadership/viteach/ansaldo4.jpeg",
       "/images/leadership/viteach/ansaldo5.jpeg",
@@ -287,6 +287,7 @@ const viteachCampaigns: OutreachCampaign[] = [
     description:
       "Led a 3-day flagship donation logistics track, collecting and delivering academic stationery supplies to students of Sirudhavoor Government High School alongside Faculty Coordinator Dr. Sathiya Narayanan Sekar.",
     images: [
+      "/images/leadership/viteach/donation-video.mp4",
       "/images/leadership/viteach/donation1.jpeg",
       "/images/leadership/viteach/donation2.jpeg",
       "/images/leadership/viteach/donation3.jpeg",
@@ -313,9 +314,9 @@ const viteachCampaigns: OutreachCampaign[] = [
     description:
       "Coordinated volunteering logistics and safety protocols for an environmental beach cleaning camp at Kovalam Beach.",
     images: [
+      "/images/leadership/viteach/beach3.jpeg",
       "/images/leadership/viteach/beach1.jpeg",
       "/images/leadership/viteach/beach2.jpeg",
-      "/images/leadership/viteach/beach3.jpeg",
       "/images/leadership/viteach/beach4.jpeg",
       "/images/leadership/viteach/beach5.jpeg",
       "/images/leadership/viteach/beach6.jpeg",
@@ -330,10 +331,10 @@ const viteachCampaigns: OutreachCampaign[] = [
     description:
       "Student Coordinator managing 22 volunteers across Registration (4), Design (5), Marketing (3), and Groundwork (10). Organized Skribbl, Akinator, and Whisper Challenge games with a custom paper-slip points calculator.",
     images: [
+      "/images/leadership/viteach/pict4.jpeg",
       "/images/leadership/viteach/pict1.jpeg",
       "/images/leadership/viteach/pict2.jpeg",
       "/images/leadership/viteach/pict3.jpeg",
-      "/images/leadership/viteach/pict4.jpeg",
     ],
   },
 ];
@@ -412,13 +413,24 @@ function Lightbox({
             transition={{ duration: 0.25 }}
             className="absolute inset-0"
           >
-            <Image
-              src={images[active]}
-              alt={`Photo ${active + 1}`}
-              fill
-              sizes="90vw"
-              className="object-contain"
-            />
+            {images[active].endsWith(".mp4") ? (
+              <video
+                src={images[active]}
+                className="w-full h-full object-contain"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            ) : (
+              <Image
+                src={images[active]}
+                alt={`Photo ${active + 1}`}
+                fill
+                sizes="90vw"
+                className="object-contain"
+              />
+            )}
           </motion.div>
         </AnimatePresence>
 
@@ -456,7 +468,11 @@ function Lightbox({
                 : "border-white/20 opacity-60 hover:opacity-100"
             }`}
           >
-            <Image src={src} alt={`Thumb ${i + 1}`} fill sizes="64px" className="object-cover" />
+            {src.endsWith(".mp4") ? (
+              <video src={src} className="w-full h-full object-cover" muted />
+            ) : (
+              <Image src={src} alt={`Thumb ${i + 1}`} fill sizes="64px" className="object-cover" />
+            )}
           </button>
         ))}
       </div>
@@ -497,13 +513,24 @@ function MediaGallery({ images }: { images: string[] }) {
             transition={{ duration: 0.3 }}
             className="absolute inset-0"
           >
-            <Image
-              src={images[activeIdx]}
-              alt="Featured"
-              fill
-              sizes="(max-width: 768px) 90vw, 500px"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+            {images[activeIdx].endsWith(".mp4") ? (
+              <video
+                src={images[activeIdx]}
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            ) : (
+              <Image
+                src={images[activeIdx]}
+                alt="Featured"
+                fill
+                sizes="(max-width: 768px) 90vw, 500px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            )}
           </motion.div>
         </AnimatePresence>
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
@@ -534,7 +561,11 @@ function MediaGallery({ images }: { images: string[] }) {
                     : "border-zinc-200 hover:border-zinc-400"
                 }`}
               >
-                <Image src={src} alt={`Thumb ${i + 1}`} fill sizes="80px" className="object-cover" />
+                {src.endsWith(".mp4") ? (
+                  <video src={src} className="w-full h-full object-cover" muted />
+                ) : (
+                  <Image src={src} alt={`Thumb ${i + 1}`} fill sizes="80px" className="object-cover" />
+                )}
                 {isLast && (
                   <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                     <span className="text-white text-[10px] font-bold font-mono">+{overflow}</span>
@@ -597,7 +628,7 @@ function DocumentViewer({
       onClick={onClose}
     >
       <div
-        className="relative bg-white rounded-xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row shadow-2xl"
+        className="relative bg-white rounded-xl overflow-hidden max-w-4xl w-full max-h-[85vh] flex flex-col md:flex-row shadow-2xl border border-zinc-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close */}
@@ -645,7 +676,7 @@ function DocumentViewer({
 
         {/* Side Panel (details) */}
         {highlights && highlights.length > 0 && (
-          <div className="w-full md:w-72 border-t md:border-t-0 md:border-l border-zinc-200 p-5 overflow-y-auto bg-zinc-50/50">
+          <div className="w-full md:w-72 border-t md:border-t-0 md:border-l-2 border-zinc-300 p-5 overflow-y-auto bg-zinc-50/80 max-h-[85vh]">
             <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-700 mb-3 font-heading">
               {title}
             </h3>
@@ -673,10 +704,10 @@ function ChevronSVG({ count, active }: { count: number; active: boolean }) {
   return (
     <svg width="28" height="24" viewBox="0 0 28 24" fill="none">
       {count >= 1 && (
-        <path d="M14 4 L4 14 L6.5 14 L14 7 L21.5 14 L24 14 Z" fill={fill} />
+        <path d="M4 4 L14 14 L24 4 L21.5 4 L14 11 L6.5 4 Z" fill={fill} />
       )}
       {count >= 2 && (
-        <path d="M14 10 L4 20 L6.5 20 L14 13 L21.5 20 L24 20 Z" fill={fill} />
+        <path d="M4 10 L14 20 L24 10 L21.5 10 L14 17 L6.5 10 Z" fill={fill} />
       )}
       {count === 0 && (
         <circle cx="14" cy="12" r="5" fill="none" stroke={fill} strokeWidth="2" />
@@ -1021,15 +1052,12 @@ export default function LeadershipPage() {
               </h3>
 
               {/* Chevron Timeline */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-0 sm:justify-between">
+              <div className="flex flex-col sm:flex-row items-stretch gap-4 sm:gap-0">
                 {nccRanks.map((r, i) => (
-                  <div key={r.rank} className="flex items-center gap-3 sm:flex-col sm:items-center sm:text-center sm:gap-2 flex-1">
-                    {/* Connector line (not on first item) */}
-                    {i > 0 && (
-                      <div className="hidden sm:block absolute" />
-                    )}
-                    <div className="flex sm:flex-col items-center gap-3 sm:gap-2">
-                      <div className="h-12 w-12 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center">
+                  <div key={r.rank} className="flex items-center gap-0 flex-1">
+                    {/* Rank node */}
+                    <div className="flex sm:flex-col items-center gap-3 sm:gap-2 sm:text-center flex-1">
+                      <div className="h-12 w-12 rounded-full bg-zinc-100 border border-zinc-200 flex items-center justify-center shrink-0">
                         <ChevronSVG count={r.chevrons} active={true} />
                       </div>
                       <div>
@@ -1041,12 +1069,12 @@ export default function LeadershipPage() {
                       </div>
                     </div>
 
-                    {/* Arrow connector */}
+                    {/* Arrow connector between nodes */}
                     {i < nccRanks.length - 1 && (
-                      <div className="hidden sm:flex items-center justify-center px-2">
-                        <svg className="h-4 w-8 text-zinc-300" viewBox="0 0 32 16" fill="none" stroke="currentColor" strokeWidth="2">
-                          <line x1="0" y1="8" x2="28" y2="8" />
-                          <polyline points="22 2 28 8 22 14" />
+                      <div className="hidden sm:flex items-center justify-center shrink-0 px-1">
+                        <svg className="h-4 w-10 text-zinc-300" viewBox="0 0 40 16" fill="none" stroke="currentColor" strokeWidth="2">
+                          <line x1="0" y1="8" x2="34" y2="8" />
+                          <polyline points="28 2 34 8 28 14" />
                         </svg>
                       </div>
                     )}
@@ -1055,15 +1083,13 @@ export default function LeadershipPage() {
               </div>
 
               {/* Promotion images */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-5">
+              <div className="grid grid-cols-2 gap-2 mt-5">
                 {[
-                  "/images/leadership/ncc/cdt-to-lcpl-promotion1.jpeg",
                   "/images/leadership/ncc/cdt-to-lcpl-promotion2.jpeg",
-                  "/images/leadership/ncc/cdt-to-lcpl-promotion3.jpeg",
                   "/images/leadership/ncc/lcpl-to-cpl-promotion.jpeg",
                 ].map((src) => (
                   <div key={src} className="relative aspect-[4/3] rounded-lg overflow-hidden bg-zinc-100">
-                    <Image src={src} alt="NCC Promotion" fill sizes="200px" className="object-cover" />
+                    <Image src={src} alt="NCC Promotion" fill sizes="300px" className="object-cover" />
                   </div>
                 ))}
               </div>
@@ -1153,7 +1179,7 @@ export default function LeadershipPage() {
                         : "bg-transparent text-zinc-600 border-zinc-300 hover:border-zinc-500"
                     }`}
                   >
-                    {evt.title.length > 20 ? evt.title.slice(0, 18) + "…" : evt.title}
+                    {evt.title}
                   </button>
                 ))}
               </div>
@@ -1252,24 +1278,41 @@ export default function LeadershipPage() {
                   Basketball — Player Stats
                 </h3>
 
-                <div className="flex flex-col gap-2 mt-3">
-                  {basketballAccolades.map((a) => (
-                    <div key={a.title} className="flex items-start gap-2 text-xs text-zinc-600">
-                      <span className="text-zinc-400 mt-0.5 shrink-0">▸</span>
-                      <div>
-                        <span className="font-semibold text-black">{a.title}</span>
-                        <span className="text-zinc-500"> — {a.result} ({a.level})</span>
-                        {a.certificateUrl && (
-                          <a
-                            href={a.certificateUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="ml-2 text-[10px] font-bold uppercase tracking-widest text-zinc-500 hover:text-black transition-colors"
-                          >
-                            [Certificate]
-                          </a>
-                        )}
-                      </div>
+                <div className="mt-3 border border-zinc-200 rounded-lg overflow-hidden">
+                  {/* Level header row */}
+                  <div className="grid grid-cols-3 text-center text-[9px] font-bold uppercase tracking-widest text-zinc-500 bg-zinc-50 border-b border-zinc-200">
+                    <div className="py-2 border-r border-zinc-200">Level</div>
+                    <div className="py-2 border-r border-zinc-200">Achievement</div>
+                    <div className="py-2">Result</div>
+                  </div>
+                  {/* Nationals row */}
+                  <div className="grid grid-cols-3 text-center text-xs border-b border-zinc-200">
+                    <div className="py-2.5 border-r border-zinc-200 font-semibold text-black">Nationals</div>
+                    <div className="py-2.5 border-r border-zinc-200 text-zinc-600">CBSE Cluster Nationals 2019</div>
+                    <div className="py-2.5 text-zinc-600">Quarter-Finalists</div>
+                  </div>
+                  {/* University row */}
+                  <div className="grid grid-cols-3 text-center text-xs border-b border-zinc-200">
+                    <div className="py-2.5 border-r border-zinc-200 font-semibold text-black">University</div>
+                    <div className="py-2.5 border-r border-zinc-200 text-zinc-600">
+                      SRM IST Founder&apos;s Trophy 2024
+                      <a
+                        href="https://drive.google.com/file/d/1Atnfj2h5QbCv8gZkVAOXkYOoSgdbJVkn/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-1 text-[9px] font-bold uppercase tracking-widest text-zinc-400 hover:text-black transition-colors"
+                      >
+                        [Cert]
+                      </a>
+                    </div>
+                    <div className="py-2.5 text-zinc-600">3rd Place — Men&apos;s</div>
+                  </div>
+                  {/* School / State / Zone placeholder rows */}
+                  {["State", "Zone", "School"].map((level) => (
+                    <div key={level} className="grid grid-cols-3 text-center text-xs border-b border-zinc-200 last:border-b-0">
+                      <div className="py-2.5 border-r border-zinc-200 font-semibold text-black">{level}</div>
+                      <div className="py-2.5 border-r border-zinc-200 text-zinc-300 italic">—</div>
+                      <div className="py-2.5 text-zinc-300 italic">—</div>
                     </div>
                   ))}
                 </div>
