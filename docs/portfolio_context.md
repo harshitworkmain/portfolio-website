@@ -163,7 +163,20 @@ This document serves as the single, high-fidelity reference file containing all 
 
 ## 🏀 Extracurriculars & Leadership
 
-*   **Team Namo Nirvana Operations Lead:** Coordinated schedules, budgets, technical team alignments, and sponsored materials for a 100+ member engineering crew.
+*   **Team Namo Nirvana Operations Lead / Deputy Operations Lead:** Coordinated schedules, budgets, technical team alignments, and sponsored materials for a 100+ member engineering crew.
+    *   **Namo Nirvana Operational Milestones:**
+        *   **Official Special Team Recognition:** Led the coordination to achieve official recognition for Team Namo Nirvana as the official Robotics Special Team of VIT Chennai.
+            *   *Related Assets:* `public/images/leadership/namo-nirvana/officially-recognized-as-special-team.jpeg`, `nn-logo*.jpeg`
+        *   **Recruitment & Orientation (Deputy Operations Lead):** Structured and conducted multi-stage recruitment interviews. Formally addressed and oriented the new engineering recruits to align them with operational goals.
+            *   *Related Assets:* `public/images/leadership/namo-nirvana/special-team-recruit-nterview*.jpeg`, `new-recruits-addressing*.jpeg`
+        *   **College Special Team Showcase:** Coordinated showcase exhibitions of robotics projects for the university leadership, including a project review by the Pro-VC.
+            *   *Related Assets:* `public/images/leadership/namo-nirvana/college-special-team-showcase-grp-photo.jpeg`, `college-special-team-showcase-proVC-review.jpeg`
+        *   **Merchandise & Branding Logistics:** Handled logistics and design coordination for official team merchandise, including team caps.
+            *   *Related Assets:* `public/images/leadership/namo-nirvana/nn-cap-merch.jpeg`
+        *   **Tenure Conclusion & Dean Reviews:** Stood for final review with the School Dean and Associate Dean at the close of operational tenure.
+            *   *Related Assets:* `public/images/leadership/namo-nirvana/team-photo-with-school-dean-assocDean-as-tenure-ends*.jpeg`
+        *   **Power Transfer to Juniors:** Led the formal transition and hand-off ceremony transferring operations and leadership to the junior core team.
+            *   *Related Assets:* `public/images/leadership/namo-nirvana/power-transfer-to-juniors*.jpeg`
 *   **NCC Cadet Leadership (1 Tamil Nadu Battalion NCC):**
     *   **Service Timeline:** Nov 2023 – Nov 2025 (Corporal rank held).
     *   **NCC Digital Assets:**
@@ -178,13 +191,12 @@ This document serves as the single, high-fidelity reference file containing all 
             *   *Related Assets:* `public/images/leadership/ncc/piloting-maj-varadrajans-parents-army-officers*.jpeg`
         *   **OTA Chennai Passing Out Parade Visits & Training:** Coordinated and participated in military infrastructure camps and training visits at the Officers Training Academy (OTA) Chennai. Interacted with senior OTA instructors, officer cadets (including notable VIT alumni), and army officers on the drill square to study parade protocols and command drills.
             *   *Related Assets:* `public/images/leadership/ncc/ota-adjutants-parade-visit*.jpeg`
-        *   **Coast Guard Fitness Festival (CGFF) 2025 (Feb 15, 2025):** Organized by VIT NCC in collaboration with the Indian Coast Guard (Region East) for the 49th Indian Coast Guard Raising Day. Coordinated logistics, ticketing, and operations for 700+ participants (NCC cadets, armed forces, corporates, students). 
-            *   *Activities:* Managed the Coast Guard Mariners Challenge (military-grade obstacle endurance test), bootcamp workouts, Zumba zone, and live entertainment brackets (DJ, bands). Cash prize pool of ₹2 Lakhs.
-            *   *Logistics:* Handled ticketing via BookMyShow Insider (Individual: ₹100, Team of 5: ₹500, General Pass: ₹10).
-            *   *Dignitaries:* Moderated the valedictory hosted by Dr. J. Radhakrishnan (IAS, Additional Chief Secretary, Govt of Tamil Nadu) and Inspector General Datwinder Singh Saini (TM, Commander of Indian Coast Guard Region East).
+        *   **Coast Guard Fitness Festival (CGFF) 2025 Coordination (Feb 15, 2025):** Organized by the Indian Coast Guard (Region East) for the 49th Raising Day. Under VIT NCC, spearheaded student coordination, registration management, and piloted chief guests Dr. J. Radhakrishnan (IAS, Additional Chief Secretary, TN) and Inspector General Datwinder Singh Saini (TM, Commander of ICG Region East).
+            *   *Activities:* Co-coordinated the Coast Guard Mariners Challenge (obstacle endurance test), bootcamp workouts, Zumba zone, and live entertainment brackets (DJ, bands) for 700+ competitors with a ₹2 Lakhs prize pool.
             *   *Related Assets:* `public/images/leadership/coast-guard/coast-guard-fitness-festival-2025-*.jpeg`
 *   **Sports:** University and national-level basketball player (Secured 3rd Place Men's Category, Founder's Birthday Trophy 2024 at SRM IST).
 *   **Social Outreach (VITeach VITC):** Core volunteer at *VITeach*, leading tutoring, environmental campaigns, and community outreach drives.
+
 
     *   **VITeach Digital Assets:**
         *   Official Website: [viteach.in](https://viteach.in/)
