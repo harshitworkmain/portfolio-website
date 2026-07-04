@@ -207,28 +207,6 @@ const nccEvents: NCCEvent[] = [
    DATA — Basketball
    ════════════════════════════════════════════════════════════ */
 
-interface BasketballAccolade {
-  title: string;
-  result: string;
-  level: string;
-  certificateUrl?: string;
-}
-
-const basketballAccolades: BasketballAccolade[] = [
-  {
-    title: "SRM IST Founder's Birthday Trophy 2024",
-    result: "3rd Place — Men's Category",
-    level: "University",
-    certificateUrl:
-      "https://drive.google.com/file/d/1Atnfj2h5QbCv8gZkVAOXkYOoSgdbJVkn/view?usp=sharing",
-  },
-  {
-    title: "CBSE Cluster Nationals 2019",
-    result: "Quarter-Finalists",
-    level: "Nationals",
-  },
-];
-
 const basketballImages = [
   "/images/leadership/basketball/srm-ktr-founders-trophy-third-place1.jpeg",
   "/images/leadership/basketball/srm-ktr-founders-trophy-third-place2.jpeg",
