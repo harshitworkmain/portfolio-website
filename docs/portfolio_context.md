@@ -165,16 +165,46 @@ This document serves as the single, high-fidelity reference file containing all 
 
 *   **Team Namo Nirvana Operations Lead:** Coordinated schedules, budgets, technical team alignments, and sponsored materials for a 100+ member engineering crew.
 *   **NCC Cadet Leadership (1 Tamil Nadu Battalion NCC):**
-    *   Promoted from Cadet to Lance Corporal (Republic Day 2025), and subsequently to Corporal (Independence Day 2025).
-    *   **NCC CATC-25 Camp:** Secured Triple Honors: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*.
+    *   **Service Timeline:** Nov 2023 – Nov 2025 (Corporal rank held).
+    *   **NCC Digital Assets:**
+        *   Instagram Channel: [instagram.com/vit_chennai_ncc](https://www.instagram.com/vit_chennai_ncc/)
+    *   **Cadet Promotions & Training:**
+        *   Promoted from Cadet to Lance Corporal (Republic Day 2025) and subsequently to Corporal (Independence Day 2025). Service concluded in November 2025.
+        *   *Camp Honors (CATC-25):* Secured Triple Accolades: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*.
+    *   **Key Guard of Honor & Piloting Achievements:**
+        *   **Valedictory Address Salami Shastra (July 2025) — Chief Minister of Goa Visit:** Selected for the elite Salami Shastra (Guard of Honor) presenting official salute and parade honors to Chief Minister Dr. Pramod Sawant during the "Road Map to VIKSIT BHARAT" national conference at VIT Chennai.
+            *   *Related Assets:* `public/images/leadership/ncc/salami-shastra-to-goa-cm*.jpeg`
+        *   **Parakram Divas Piloting & Tribute (Jan 23, 2025):** Handled piloting logistics and stood guard of honor in saluting the parents of Ashok Chakra recipient Major Mukund Varadarajan (Shri R. Varadarajan and Smt. Geetha Varadarajan) during the Netaji Subhas Chandra Bose commemoration alongside military dignitaries (Lt. Col. Dr. Rajan Gupta and Former Chief of Staff Shri M. Indrabalan).
+            *   *Related Assets:* `public/images/leadership/ncc/piloting-maj-varadrajans-parents-army-officers*.jpeg`
+        *   **OTA Chennai Passing Out Parade Visits & Training:** Coordinated and participated in military infrastructure camps and training visits at the Officers Training Academy (OTA) Chennai. Interacted with senior cadets and explored parade protocols guided by the Academy Cadet Adjutant on the drill square.
+            *   *Related Assets:* `public/images/leadership/ncc/ota-adjutants-parade-visit*.jpeg`
 *   **Indian Coast Guard Fitness Festival 2025 Event Coordinator:**
+
     *   Awarded Certificate of Appreciation for coordinating logistics, registration, and event scheduling for **1,000+ elite competitors** (Armed forces, corporate, and university groups).
 *   **Sports:** University and national-level basketball player (Secured 3rd Place Men's Category, Founder's Birthday Trophy 2024 at SRM IST).
-*   **Social Outreach:** Core volunteer at *VITeach*, leading tutoring and community outreach camps for underprivileged children.
+*   **Social Outreach (VITeach VITC):** Core volunteer at *VITeach*, leading tutoring, environmental campaigns, and community outreach drives.
+    *   **VITeach Digital Assets:**
+        *   Official Website: [viteach.in](https://viteach.in/)
+        *   Secondary Platform: [viteach-website-ten.vercel.app/content](https://viteach-website-ten.vercel.app/content)
+        *   LinkedIn Portal: [linkedin.com/company/viteachvitcc](https://www.linkedin.com/company/viteachvitcc/)
+        *   Instagram Feed: [instagram.com/viteachvitc](https://www.instagram.com/viteachvitc/)
+    *   **Outreach & Logistics Milestones:**
+        *   **Ansaldo Academy Quality Education Drive (SDG 4) — Oct 22 & 24, 2024:** Coordinated educational camps at Ansaldo Academy (Thazhambur, Chennai) supporting Sustainable Development Goal 4.
+            *   *Day 1 (Curiosity & Awareness):* Ran interactive sessions promoting real-world application over rote learning. Addressed sensitive topics including hygiene, puberty, and breaking mental/personal struggles stigmas.
+            *   *Day 2 (Nutrition & Movement):* Guided physical wellness workshops, introductory yoga sessions, and an exhibition of legumes, millets, and vegetables showcasing raw health benefits.
+            *   *Day 4 (Academic Stream Mentorship):* Mentored 9th-grade cohorts on high-school stream selections (Science, Commerce, Arts). Led creative logic brain games and origami workshops.
+            *   *Related LinkedIn Posts:* [VITeach SDG 4 Post](https://www.linkedin.com/posts/viteach-vitc_qualityeducation-viteach-ansaldoacademy-ugcPost-7271260000675667973-AHow?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg), [Lavanya Darshni SDG 4 Post](https://www.linkedin.com/posts/darshnilavanya_sdg-education-youth-ugcPost-7255810360899743746-sQyi?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg)
+        *   **Vibrance 2025 Stationery Donation Drive — April 15, 2025:** Led a 3-day flagship donation logistics track, collecting and delivering academic stationery supplies to students of Sirudhavoor Government High School alongside Faculty Coordinator Dr. Sathiya Narayanan Sekar.
+            *   *Related LinkedIn Posts:* [Harshit Singh Donation Post](https://www.linkedin.com/posts/harshit-singh-3b8467300_viteach-donationdrive-schoolvisit-activity-7318722780353482753-emC-?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg), [Lavanya Darshni Donation Post](https://www.linkedin.com/posts/darshnilavanya_communityservice-stationerydrive-sdg-ugcPost-7319651650325946368-6uDt?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg)
+        *   **Kovalam Beach Environmental Cleaning Camp — Aug 9, 2025:** Coordinated volunteering logistics and safety protocols for a beach cleaning camp at Kovalam Beach.
+        *   **Pictionary Pre-Vibrance Event — Feb 17, 2024:** Coordinated an offline games event at the Amphitheatre as a Student Coordinator managing 22 volunteers across Registration (4), Design (5), Marketing (3), and Groundwork (10).
+            *   *Structure:* Organized games (Skribbl, Akinator, Whisper Challenge) based on movies/anime for teams of 2–8. Designed a custom paper-slip tracking system to log and calculate scores for prizes.
 *   **Academic Clubs:** Active participant in the *VIT Chennai Quiz Club*.
 *   **Languages:** English (Fluent) | Hindi (Native)
 
 ---
+
+
 
 ## 🎨 Portfolio Design System & Branding Guidelines
 
