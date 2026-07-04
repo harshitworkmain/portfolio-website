@@ -5,6 +5,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { ExternalLink, Award, FileText, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/ui/PageTransition";
+import ScrollToTop from "@/components/ScrollToTop";
 
 /* ────────────────────────────────────────────────────────
    Type Definitions
@@ -970,6 +971,7 @@ export default function Projects() {
           />
         )}
       </AnimatePresence>
+      <ScrollToTop />
     </PageTransition>
   );
 }

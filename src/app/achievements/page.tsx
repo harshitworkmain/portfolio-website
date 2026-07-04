@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef, useState, useEffect, useCallback, useMemo } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/ui/PageTransition";
+import ScrollToTop from "@/components/ScrollToTop";
 
 /* ────────────────────────────────────────────────────────
    Achievement Data — Chronological: Latest → Oldest
@@ -641,6 +642,7 @@ export default function AchievementsPage() {
           </div>
         </div>
       </div>
+      <ScrollToTop />
     </PageTransition>
   );
 }
