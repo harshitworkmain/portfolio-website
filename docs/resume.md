@@ -77,18 +77,18 @@
 *   **SIH’25 Finalist:** Advanced to Top 50 out of 864 teams internally and Top 5 out of 500 teams nationally for the Grand Finale. [[Certificate](https://drive.google.com/file/d/1Vy3qPMbipSNLYGE3GdyYMsqRPwHSYtPD/view?usp=sharing)]
 *   **3rd Place, Technovation 2025 (Kurukshetra ’25, CEG Guindy, Anna University):** Ranked 2nd Runner Up out of 50+ teams; ₹15,000 award. [[Certificate](https://drive.google.com/file/d/1AkRdc0y1Qdw9cImu5395G5RwdB8vPJuo/view?usp=sharing)]
 *   **Winner, Innovate X Impact (V-NEST):** Secured 1st Position out of 35 teams; ₹5,000 award.
-*   **Deputy Operations Lead, Team Namo Nirvana (VIT Chennai):** Led 100+ member teams across 5–6 competitions/semester, boosting execution efficiency by 35% and securing 2 sponsors. [[LOA](https://drive.google.com/file/d/13dByHnoyORd2wqy27hb_piQI_UBVmwLd/view?usp=sharing)]
-*   **NCC Cadet Leadership (Corporal rank held Nov 2023 – Nov 2025):** 
+*   **Deputy Operations Lead, Team Namo Nirvana (VIT Chennai):** Part-time | Jan 2025 - May 2026 (1 yr 5 mos). Appointed Deputy Operations Lead effective **July 14, 2025**. Led 100+ member teams across 5–6 competitions/semester, boosting execution efficiency by 35%. [[LOA](https://drive.google.com/file/d/13dByHnoyORd2wqy27hb_piQI_UBVmwLd/view?usp=sharing)]
+*   **NCC Cadet Leadership (Corporal rank held Aug 2024 – Jan 2026 | 1 yr 6 mos):** 
+    *   Promoted to Corporal on **August 15, 2025** (Independence Day) and to Lance Corporal on **January 26, 2025** (Republic Day).
     *   Selected for elite **Salami Shastra** (Guard of Honor) presenting salute and parade honors to Chief Minister of Goa Dr. Pramod Sawant during his official campus visit in July 2025.
     *   Led piloting logistics and stood Guard of Honor for Shri R. Varadarajan (father of Ashoka Chakra recipient Major Mukund AC) during Parakram Divas commemoration in January 2025.
     *   Coordinated visits and training square drills at Officers Training Academy (OTA) Chennai, interacting with senior instructors, officer cadets (VIT alumni), and army officers.
-    *   Organized the **Coast Guard Fitness Festival (CGFF) 2025** (700+ participants, BMS Insider ticketing, ₹2L cash prizes) for the 49th Raising Day. Moderated the valedictory panel hosted by ACS Dr. J. Radhakrishnan (IAS) and IG Datwinder Singh Saini (TM).
-    *   Secured **NCC CATC-25 Camp Triple Accolades**: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*.
-
-*   **Social Outreach (VITeach VITC):** Led logistics and volunteering operations for key educational and community drives:
-    *   *Ansaldo Academy SDG 4 Campaign (Oct 2024):* Taught stream selection mentorship, mindfulness/yoga, and run awareness campaigns.
-    *   *Sirudhavoor Donation Drive (Apr 2025):* Coordinated stationary donation logistics for Sirudhavoor Government High School.
-    *   *Pictionary Pre-Vibrance Event (Feb 2024):* Coordinated offline intracollegiate games, managing 22 volunteers and custom score tracking.
+    *   Co-coordinated registration and piloted VIPs for the **Coast Guard Fitness Festival (CGFF) 2025** organized by the Indian Coast Guard (Region East). [[CGFF'25 Certificate](https://drive.google.com/file/d/1zLqcapaGHt8TDJJSpMiYdnpmeqqUG60l/view?usp=sharing)]
+    *   Secured **NCC CATC-25 Camp Triple Accolades**: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*. [[CATC'25 Certificate](https://drive.google.com/file/d/1Uu_nhReVK7h4xlHu3vYChe7acoKf6WPa/view?usp=sharing)]
+*   **Sports & Athletics:**
+    *   **Basketball Player (Sports Club VITC):** Aug 2023 - Jun 2025 (1 yr 11 mos). Secured 3rd Place Men's Category, SRM IST Founder's Birthday Trophy 2024. [[Merit Certificate](https://drive.google.com/file/d/1Atnfj2h5QbCv8gZkVAOXkYOoSgdbJVkn/view?usp=sharing)]
+    *   **Marathon Runner:** Active participation in endurance runs. [[Marathon Certificate](https://drive.google.com/file/d/1r3xe2khNXcbYy3_yC9T7Dnl15S3bTtin/view?usp=sharing)]
+*   **Social Outreach (VITeach VITC):** FFCS Member | Part-time | Jan 2024 - Mar 2025 (1 yr 3 mos). Led logistics and volunteering operations for key educational and community drives.
 
 ---
 

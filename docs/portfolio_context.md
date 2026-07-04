@@ -157,17 +157,18 @@ This document serves as the single, high-fidelity reference file containing all 
 4.  **BIS Project Showcase Presenter (Bureau of Indian Standards):**
     *   Selected to exhibit the Terrain Scout Rover at the BIS Project Showcase held at VIT Chennai, demonstrating its intelligent navigation and scouting capabilities.
 5.  **VITISH’25 Internal Finalist (SIH 2025 Internal Hackathon):**
-    *   Placed in the **Top 100 out of 864 competing teams** (advancing to the 212-team 24-hour hackathon round) with the TRIDENT Tactical Rescue Interface ecosystem (Smart Wearable + Command Center + Autonomous Underwater ROV).
+    *   Placed in the **Top 100 out of 864 competing teams** (advancing to the 212-team 24-hour hackathon round) with the TRIDENT## 🏀 Extracurriculars & Leadership
 
----
-
-## 🏀 Extracurriculars & Leadership
-
-*   **Team Namo Nirvana Operations Lead / Deputy Operations Lead:** Coordinated schedules, budgets, technical team alignments, and sponsored materials for a 100+ member engineering crew.
+*   **Team Namo Nirvana Operations Lead / Deputy Operations Lead:** Part-time | Jan 2025 - May 2026 (1 yr 5 mos). Coordinated schedules, budgets, technical team alignments, and merchandise for a 100+ member robotics engineering crew.
+    *   **Roles & Appointments:**
+        *   **Operations Deputy Lead (Apr 2025 - May 2026):** Appointed effective **July 14, 2025**. Managed embedded systems operations, project showcases, and team strategy.
+            *   *Appointment Post:* [LinkedIn Announcement](https://www.linkedin.com/posts/harshit-singh-3b8467300_namonirvana-vitchennai-robotics-activity-7351886716011520000-BYRd?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg)
+            *   *Letter of Appointment:* [[LOA Certificate](https://drive.google.com/file/d/13dByHnoyORd2wqy27hb_piQI_UBVmwLd/view?usp=sharing)]
+        *   **Operations Team Member (Jan 2025 - Apr 2025):** Led initial logistics, sponsorships, and project management pipelines.
     *   **Namo Nirvana Operational Milestones:**
         *   **Official Special Team Recognition:** Led the coordination to achieve official recognition for Team Namo Nirvana as the official Robotics Special Team of VIT Chennai.
             *   *Related Assets:* `public/images/leadership/namo-nirvana/officially-recognized-as-special-team.jpeg`, `nn-logo*.jpeg`
-        *   **Recruitment & Orientation (Deputy Operations Lead):** Structured and conducted multi-stage recruitment interviews for departments spanning Programming, Electronics, Mechatronics, Research & Science, Media & Outreach, and Operations. Formally addressed and oriented the new engineering recruits to align them with operational goals.
+        *   **Recruitment & Orientation:** Structured and conducted multi-stage recruitment interviews for departments spanning Programming, Electronics, Mechatronics, Research & Science, Media & Outreach, and Operations. Formally addressed and oriented the new engineering recruits to align them with operational goals.
             *   *Related Assets:* `public/images/leadership/namo-nirvana/special-team-recruit-nterview*.jpeg`, `new-recruits-addressing*.jpeg`
             *   *Related LinkedIn Post:* [Official Recruitment Post](https://www.linkedin.com/posts/namo-nirvana_namonirvana-vitchennai-robotics-activity-7351808302894272513-nrfe?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEz0R3wBI3e4H3rmOGoUq9S8zerUqdPc9Zg)
         *   **College Special Team Showcase:** Coordinated showcase exhibitions of robotics projects for the university leadership, including a project review by the Pro-VC.
@@ -181,12 +182,14 @@ This document serves as the single, high-fidelity reference file containing all 
             *   *Related Assets:* `public/images/leadership/namo-nirvana/power-transfer-to-juniors*.jpeg`
 
 *   **NCC Cadet Leadership (1 Tamil Nadu Battalion NCC):**
-    *   **Service Timeline:** Nov 2023 – Nov 2025 (Corporal rank held).
+    *   **Service Timeline:** Part-time | Aug 2024 - Jan 2026 (1 yr 6 mos).
     *   **NCC Digital Assets:**
         *   Instagram Channel: [instagram.com/vit_chennai_ncc](https://www.instagram.com/vit_chennai_ncc/)
-    *   **Cadet Promotions & Training:**
-        *   Promoted from Cadet to Lance Corporal (Republic Day 2025) and subsequently to Corporal (Independence Day 2025). Service concluded in November 2025.
-        *   *Camp Honors (CATC-25):* Secured Triple Accolades: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*.
+    *   **Cadet Promotions & Timeline:**
+        *   **Corporal (Aug 2025 - Jan 2026):** Promoted from Lance Corporal during the Investiture Ceremony held on the occasion of the **79th Independence Day (August 15, 2025)**.
+        *   **Lance Corporal (Jan 2025 - Oct 2025):** Promoted from Cadet during the Investiture Ceremony held on the occasion of the **76th Republic Day (January 26, 2025)**.
+        *   **Cadet (Aug 2024 - Feb 2025):** Initial enlistment and military drills.
+        *   *Camp Honors (CATC-25):* Secured Triple Accolades: *Best Marching Contingent*, *Best Cultural Performance*, and *Overall Best Company*. [[CATC'25 Certificate](https://drive.google.com/file/d/1Uu_nhReVK7h4xlHu3vYChe7acoKf6WPa/view?usp=sharing)]
     *   **Key Guard of Honor, Piloting, & Event Coordination Achievements:**
         *   **Valedictory Address Salami Shastra (July 2025) — Chief Minister of Goa Visit:** Selected for the elite Salami Shastra (Guard of Honor) presenting official salute and parade honors to Chief Minister Dr. Pramod Sawant during the "Road Map to VIKSIT BHARAT" national conference at VIT Chennai.
             *   *Related Assets:* `public/images/leadership/ncc/salami-shastra-to-goa-cm*.jpeg`
@@ -194,13 +197,14 @@ This document serves as the single, high-fidelity reference file containing all 
             *   *Related Assets:* `public/images/leadership/ncc/piloting-maj-varadrajans-parents-army-officers*.jpeg`
         *   **OTA Chennai Passing Out Parade Visits & Training:** Coordinated and participated in military infrastructure camps and training visits at the Officers Training Academy (OTA) Chennai. Interacted with senior OTA instructors, officer cadets (including notable VIT alumni), and army officers on the drill square to study parade protocols and command drills.
             *   *Related Assets:* `public/images/leadership/ncc/ota-adjutants-parade-visit*.jpeg`
-        *   **Coast Guard Fitness Festival (CGFF) 2025 Coordination (Feb 15, 2025):** Organized by the Indian Coast Guard (Region East) for the 49th Raising Day. Under VIT NCC, spearheaded student coordination, registration management, and piloted chief guests Dr. J. Radhakrishnan (IAS, Additional Chief Secretary, TN) and Inspector General Datwinder Singh Saini (TM, Commander of ICG Region East).
+        *   **Coast Guard Fitness Festival (CGFF) 2025 Coordination (Feb 15, 2025):** Organized by the Indian Coast Guard (Region East) for the 49th Raising Day. Under VIT NCC, spearheaded student coordination, registration management, and piloted chief guests Dr. J. Radhakrishnan (IAS, Additional Chief Secretary, TN) and Inspector General Datwinder Singh Saini (TM, Commander of ICG Region East). [[CGFF'25 Certificate](https://drive.google.com/file/d/1zLqcapaGHt8TDJJSpMiYdnpmeqqUG60l/view?usp=sharing)]
             *   *Activities:* Co-coordinated the Coast Guard Mariners Challenge (obstacle endurance test), bootcamp workouts, Zumba zone, and live entertainment brackets (DJ, bands) for 700+ competitors with a ₹2 Lakhs prize pool.
             *   *Related Assets:* `public/images/leadership/coast-guard/coast-guard-fitness-festival-2025-*.jpeg`
-*   **Sports:** University and national-level basketball player (Secured 3rd Place Men's Category, Founder's Birthday Trophy 2024 at SRM IST).
-*   **Social Outreach (VITeach VITC):** Core volunteer at *VITeach*, leading tutoring, environmental campaigns, and community outreach drives.
 
-
+*   **Sports:** University and national-level basketball player (Sports Club VITC | Part-time | Aug 2023 - Jun 2025, 1 yr 11 mos).
+    *   **Founder's Birthday Trophy 2024:** Secured 3rd Place Men's Category at SRM IST, organized by Directorate of Sports. [[SRM IST Certificate](https://drive.google.com/file/d/1Atnfj2h5QbCv8gZkVAOXkYOoSgdbJVkn/view?usp=sharing)]
+*   **Athletics:** Marathon runner. [[Marathon Certificate](https://drive.google.com/file/d/1r3xe2khNXcbYy3_yC9T7Dnl15S3bTtin/view?usp=sharing)]
+*   **Social Outreach (VITeach VITC):** Core volunteer & FFCS Member | Part-time | Jan 2024 - Mar 2025 (1 yr 3 mos). Leading tutoring, environmental campaigns, and community outreach drives.
     *   **VITeach Digital Assets:**
         *   Official Website: [viteach.in](https://viteach.in/)
         *   Secondary Platform: [viteach-website-ten.vercel.app/content](https://viteach-website-ten.vercel.app/content)
@@ -218,6 +222,7 @@ This document serves as the single, high-fidelity reference file containing all 
         *   **Pictionary Pre-Vibrance Event — Feb 17, 2024:** Coordinated an offline games event at the Amphitheatre as a Student Coordinator managing 22 volunteers across Registration (4), Design (5), Marketing (3), and Groundwork (10).
             *   *Structure:* Organized games (Skribbl, Akinator, Whisper Challenge) based on movies/anime for teams of 2–8. Designed a custom paper-slip tracking system to log and calculate scores for prizes.
 *   **Academic Clubs:** Active participant in the *VIT Chennai Quiz Club*.
+
 *   **Languages:** English (Fluent) | Hindi (Native)
 
 ---
