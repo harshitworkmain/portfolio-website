@@ -410,7 +410,7 @@ export default function Home() {
             </h3>
             <div className="flex flex-wrap justify-center gap-10 md:gap-16">
               <PhoneFrame
-                src="/videos/stembot/stembot-ros2.mp4"
+                src="/videos/stembot/stembot-working-demo.mp4"
                 title="ROS 2 Navigation"
                 subtitle="Real-time SLAM & path planning with LiDAR"
               />
