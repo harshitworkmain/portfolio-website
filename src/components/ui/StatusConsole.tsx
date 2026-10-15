@@ -3,22 +3,81 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { Terminal, Code2, CheckCircle2, Play, CornerDownLeft } from "lucide-react";
 
 /* ────────────────────────────────────────────────────────
-   Telemetry Boot Lines (auto-typed on first view)
+   Style 24: IDE Code Stream Telemetry Lines
+   Syntax-tokenized realistic streaming code lines
    ──────────────────────────────────────────────────────── */
 
-const telemetryLines = [
-  { label: "AI/ML ENGINE", status: "NOMINAL", details: "YOLOv8 edge inference: 12ms | Device: CUDA (Jetson)", statusColor: "text-emerald-500" },
-  { label: "DATA PIPELINE", status: "SYNCED", details: "Autoregressive LSTM model: 98.4% validation accuracy", statusColor: "text-emerald-500" },
-  { label: "DATA ANALYTICS", status: "ACTIVE", details: "Graph diffusion model: Dijkstra bottlenecks resolved", statusColor: "text-sky-400" },
-  { label: "ROS 2 JAZZY", status: "RUNNING", details: "Velocity control nodes active | Latency: 14ms | cmd_vel: 20Hz", statusColor: "text-emerald-500" },
-  { label: "SWE CORE", status: "ONLINE", details: "Shared Memory Buffer (/dev/shm): 0ms write latency", statusColor: "text-emerald-500" },
-  { label: "WEB APP", status: "OPTIMIZED", details: "Next.js App Server (Vercel Edge): Sub-100ms first paint", statusColor: "text-amber-400" },
+interface CodeStreamLine {
+  num: string;
+  code: string;
+  highlightToken?: string;
+  tokenClass?: string;
+  badge?: string;
+  badgeClass?: string;
+}
+
+const IDE_CODE_LINES: CodeStreamLine[] = [
+  {
+    num: "01",
+    code: "import torch, cv2, ros2_telemetry, ekf_filter",
+    highlightToken: "import",
+    tokenClass: "text-purple-600 font-bold",
+    badge: "[MODULES LOADED]",
+    badgeClass: "text-zinc-500 bg-zinc-100",
+  },
+  {
+    num: "02",
+    code: "async def verify_applied_ml_pipeline():",
+    highlightToken: "async def",
+    tokenClass: "text-blue-600 font-bold",
+  },
+  {
+    num: "03",
+    code: '  buffer = await shm.open("/dev/shm/telemetry", rate="15Hz")',
+    highlightToken: "await",
+    tokenClass: "text-purple-600 font-bold",
+    badge: "[0ms WRITE LATENCY]",
+    badgeClass: "text-emerald-700 bg-emerald-50 border border-emerald-200",
+  },
+  {
+    num: "04",
+    code: "  ekf.validate(stream=raw_encoder_logs, trials=20)",
+    highlightToken: "ekf.validate",
+    tokenClass: "text-amber-700 font-semibold",
+    badge: "[SPATIAL DRIFT -60%]",
+    badgeClass: "text-emerald-700 bg-emerald-50 border border-emerald-200",
+  },
+  {
+    num: "05",
+    code: "  lidar.filter_pointcloud(rate=3600_pts_sec, max_latency=50)",
+    highlightToken: "lidar.filter",
+    tokenClass: "text-cyan-700 font-semibold",
+    badge: "[95% ACCURACY]",
+    badgeClass: "text-emerald-700 bg-emerald-50 border border-emerald-200",
+  },
+  {
+    num: "06",
+    code: "  sparc_model.eval(dataset=12000_samples, mode='multimodal')",
+    highlightToken: "sparc_model",
+    tokenClass: "text-indigo-700 font-semibold",
+    badge: "[92.4% VAL ACC]",
+    badgeClass: "text-indigo-700 bg-indigo-50 border border-indigo-200",
+  },
+  {
+    num: "07",
+    code: '  return {"status": 200, "pipeline": "READY_FOR_DEPLOYMENT"}',
+    highlightToken: "return",
+    tokenClass: "text-purple-600 font-bold",
+    badge: "[STATUS: 200 OK]",
+    badgeClass: "text-emerald-800 bg-emerald-100 border border-emerald-300 font-bold",
+  },
 ];
 
 /* ────────────────────────────────────────────────────────
-   Command Handlers
+   Interactive Shell Types & Database
    ──────────────────────────────────────────────────────── */
 
 interface OutputLine {
@@ -28,481 +87,346 @@ interface OutputLine {
 }
 
 const HELP_OUTPUT: OutputLine[] = [
-  { id: "h1", type: "header", text: "╔══════════════════════════════════════════════════╗" },
-  { id: "h2", type: "header", text: "║   HARSHIT_PORTFOLIO — System Diagnostics v2.0    ║" },
-  { id: "h3", type: "header", text: "╚══════════════════════════════════════════════════╝" },
-  { id: "h4", type: "output", text: "" },
-  { id: "h5", type: "success", text: "  Available commands:" },
-  { id: "h6", type: "output", text: "  ─────────────────────────────────────────────" },
-  { id: "h7", type: "output", text: "  help               Show this help menu" },
-  { id: "h8", type: "output", text: "  accuracy           ML model accuracy metrics" },
-  { id: "h9", type: "output", text: "  perf | performance System latency benchmarks" },
-  { id: "h10", type: "output", text: "  matrix             Technical skill categories" },
-  { id: "h11", type: "output", text: "  navigate <page>    Go to projects/achievements/leadership/about" },
-  { id: "h12", type: "output", text: "  search <query>     Search tech tags & projects" },
-  { id: "h13", type: "output", text: "  clear              Clear terminal output" },
-  { id: "h14", type: "output", text: "" },
-  { id: "h15", type: "output", text: "  Type a command and press Enter ↵" },
+  { id: "h1", type: "header", text: "┌── System Diagnostics & Interactive CLI v2.0 ──────┐" },
+  { id: "h2", type: "success", text: "  Commands available:" },
+  { id: "h3", type: "output", text: "  • metrics     - Accuracy & model benchmarks" },
+  { id: "h4", type: "output", text: "  • perf        - System latency & hardware metrics" },
+  { id: "h5", type: "output", text: "  • stack       - Technical capabilities breakdown" },
+  { id: "h6", type: "output", text: "  • navigate    - Jump to /projects, /about, /internship" },
+  { id: "h7", type: "output", text: "  • clear       - Reset terminal buffer" },
+  { id: "h8", type: "header", text: "└───────────────────────────────────────────────────┘" },
 ];
 
-const ACCURACY_OUTPUT: OutputLine[] = [
-  { id: "a1", type: "header", text: "┌─── ML Pipeline Accuracy Report ───────────────────┐" },
-  { id: "a2", type: "output", text: "│                                                    │" },
-  { id: "a3", type: "success", text: "│  ▸ SPARC Sign Language (ISL+ASL)     92.4%  ██████▊│" },
-  { id: "a4", type: "success", text: "│  ▸ Coastal LSTM Forecast             98.4%  ███████▏│" },
-  { id: "a5", type: "output", text: "│  ▸ YOLOv8 Object Detection           94.1%  ██████▉│" },
-  { id: "a6", type: "output", text: "│  ▸ MediaPipe Gesture Landmark         96.8%  ███████│" },
-  { id: "a7", type: "output", text: "│                                                    │" },
-  { id: "a8", type: "header", text: "└────────────────────────────────────────────────────┘" },
-  { id: "a9", type: "success", text: "  ✓ All models within production thresholds" },
+const METRICS_OUTPUT: OutputLine[] = [
+  { id: "m1", type: "header", text: "┌── Verified Model & System Metrics ────────────────┐" },
+  { id: "m2", type: "success", text: "  ✓ SPARC Gesture Recognition:  92.4% Accuracy (12k samples)" },
+  { id: "m3", type: "success", text: "  ✓ Weather LSTM Forecasting:   98.4% Validation Accuracy" },
+  { id: "m4", type: "success", text: "  ✓ STEMTEC 15 Hz EKF:          -60.0% Spatial / -69.2% Angular Error" },
+  { id: "m5", type: "success", text: "  ✓ High-Frequency LiDAR:       95.0% Collision-Free Detection" },
+  { id: "m6", type: "success", text: "  ✓ TRIDENT Live Routing:       >95.0% System Telemetry Uptime" },
+  { id: "m7", type: "header", text: "└───────────────────────────────────────────────────┘" },
 ];
 
 const PERF_OUTPUT: OutputLine[] = [
-  { id: "p1", type: "header", text: "┌─── Latency & Performance Benchmarks ──────────────┐" },
-  { id: "p2", type: "output", text: "│                                                    │" },
-  { id: "p3", type: "output", text: "│  MODULE                          LATENCY    STATUS │" },
-  { id: "p4", type: "output", text: "│  ─────────────────────────────────────────────────  │" },
-  { id: "p5", type: "success", text: "│  ROS 2 cmd_vel motor             <50ms      ● OK   │" },
-  { id: "p6", type: "success", text: "│  Edge YOLOv8 inference           12ms       ● OK   │" },
-  { id: "p7", type: "output", text: "│  Vercel Edge first paint         <100ms     ● OK   │" },
-  { id: "p8", type: "output", text: "│  Shared Memory (/dev/shm)        0ms        ● OK   │" },
-  { id: "p9", type: "output", text: "│  ESP32 sensor polling            45ms       ● OK   │" },
-  { id: "p10", type: "output", text: "│                                                    │" },
-  { id: "p11", type: "header", text: "└────────────────────────────────────────────────────┘" },
-  { id: "p12", type: "success", text: "  ✓ All systems within acceptable latency bounds" },
+  { id: "p1", type: "header", text: "┌── Low-Latency Execution Benchmarks ───────────────┐" },
+  { id: "p2", type: "output", text: "  • Edge YOLOv8 Inference:    12ms  (Jetson Nano / WebGL)" },
+  { id: "p3", type: "output", text: "  • Shared-Memory Buffer:      0ms   (/dev/shm zero-copy)" },
+  { id: "p4", type: "output", text: "  • ROS 2 Telemetry Loop:      15Hz  (3,600 LiDAR pts/sec)" },
+  { id: "p5", type: "output", text: "  • First Contentful Paint:   <100ms (Next.js 16 Webpack)" },
+  { id: "p6", type: "header", text: "└───────────────────────────────────────────────────┘" },
 ];
 
-const MATRIX_OUTPUT: OutputLine[] = [
-  { id: "m1", type: "header", text: "┌─── Technical Skill Matrix ─────────────────────────┐" },
-  { id: "m2", type: "output", text: "│                                                     │" },
-  { id: "m3", type: "success", text: "│  LANGUAGES        C · C++ · Python · Java · TS · JS │" },
-  { id: "m4", type: "output", text: "│  ML FRAMEWORKS    PyTorch · TF · OpenCV · YOLOv8    │" },
-  { id: "m5", type: "output", text: "│  ROBOTICS         ROS 2 · Gazebo · SLAM · Nav2      │" },
-  { id: "m6", type: "output", text: "│  EMBEDDED         ESP32 · RPi · Arduino · LiDAR     │" },
-  { id: "m7", type: "output", text: "│  WEB & CLOUD      Next.js · React · Node · Vercel   │" },
-  { id: "m8", type: "output", text: "│  DATA & DB        Pandas · NumPy · PostgreSQL        │" },
-  { id: "m9", type: "output", text: "│  DEVOPS           Git · Docker · Linux · Bash        │" },
-  { id: "m10", type: "output", text: "│                                                     │" },
-  { id: "m11", type: "header", text: "└─────────────────────────────────────────────────────┘" },
-];
-
-const SEARCH_DB = [
-  { tag: "python", projects: ["SPARC", "STEMBOT", "Weather LSTM", "DrishtiGuide"] },
-  { tag: "ros2", projects: ["STEMBOT"] },
-  { tag: "computer vision", projects: ["SPARC", "DrishtiGuide"] },
-  { tag: "yolov8", projects: ["DrishtiGuide"] },
-  { tag: "mediapipe", projects: ["SPARC"] },
-  { tag: "esp32", projects: ["TRIDENT", "STEMBOT"] },
-  { tag: "react", projects: ["Portfolio Website", "GNOME Stocks"] },
-  { tag: "next.js", projects: ["Portfolio Website"] },
-  { tag: "nextjs", projects: ["Portfolio Website"] },
-  { tag: "typescript", projects: ["Portfolio Website", "GNOME Stocks"] },
-  { tag: "lstm", projects: ["Weather LSTM", "TRIDENT"] },
-  { tag: "pytorch", projects: ["SPARC", "Weather LSTM"] },
-  { tag: "tensorflow", projects: ["SPARC"] },
-  { tag: "opencv", projects: ["SPARC", "DrishtiGuide"] },
-  { tag: "arduino", projects: ["DrishtiGuide", "STEMBOT"] },
-  { tag: "raspberry pi", projects: ["STEMBOT"] },
-  { tag: "c++", projects: ["STEMBOT", "NeuroBridge"] },
-  { tag: "java", projects: ["NeuroBridge"] },
-  { tag: "machine learning", projects: ["SPARC", "Weather LSTM", "TRIDENT"] },
-  { tag: "robotics", projects: ["STEMBOT", "Terrain Scout"] },
-  { tag: "iot", projects: ["TRIDENT", "STEMBOT"] },
-  { tag: "wearable", projects: ["TRIDENT"] },
-  { tag: "drone", projects: ["DrishtiGuide"] },
-  { tag: "sign language", projects: ["SPARC"] },
-  { tag: "data analytics", projects: ["Weather LSTM", "GNOME Stocks"] },
-];
-
-const NAV_PAGES = ["projects", "achievements", "leadership", "about"];
-
 /* ────────────────────────────────────────────────────────
-   Typewriter hook
-   ──────────────────────────────────────────────────────── */
-
-function useTypewriter(text: string, speed: number, startDelay: number, active: boolean) {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    if (!active) return;
-    setDisplayed("");
-    setDone(false);
-
-    const delayTimeout = setTimeout(() => {
-      let i = 0;
-      const interval = setInterval(() => {
-        setDisplayed(text.slice(0, i + 1));
-        i++;
-        if (i >= text.length) {
-          clearInterval(interval);
-          setDone(true);
-        }
-      }, speed);
-      return () => clearInterval(interval);
-    }, startDelay);
-
-    return () => clearTimeout(delayTimeout);
-  }, [text, speed, startDelay, active]);
-
-  return { displayed, done };
-}
-
-/* ────────────────────────────────────────────────────────
-   Terminal Line sub-component (boot sequence)
-   ──────────────────────────────────────────────────────── */
-
-function TerminalLine({
-  line,
-  index,
-  activeLine,
-}: {
-  line: typeof telemetryLines[0];
-  index: number;
-  activeLine: number;
-}) {
-  const isActive = activeLine >= index;
-  const fullText = `[${line.label}] STATUS: ${line.status} — ${line.details}`;
-  const { displayed, done } = useTypewriter(fullText, 12, index * 600, isActive);
-
-  return (
-    <div className="flex items-start gap-2 font-mono text-[11px] leading-relaxed">
-      {/* Pulse beacon */}
-      <span className="mt-1.5 shrink-0">
-        {done ? (
-          <motion.span
-            className={`inline-block h-2 w-2 rounded-full ${line.statusColor.replace("text-", "bg-")}`}
-            animate={{ opacity: [1, 0.4, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        ) : isActive ? (
-          <span className="inline-block h-2 w-2 rounded-full bg-zinc-300" />
-        ) : (
-          <span className="inline-block h-2 w-2 rounded-full bg-zinc-200" />
-        )}
-      </span>
-
-      {/* Text */}
-      <span className={`${done ? "text-zinc-600" : "text-zinc-400"} transition-colors duration-300`}>
-        {displayed}
-        {isActive && !done && (
-          <motion.span
-            className="inline-block w-[6px] h-3.5 bg-zinc-500 ml-0.5 align-middle"
-            animate={{ opacity: [1, 0] }}
-            transition={{ duration: 0.6, repeat: Infinity }}
-          />
-        )}
-      </span>
-    </div>
-  );
-}
-
-/* ────────────────────────────────────────────────────────
-   Main Console Component — Interactive Shell
+   Main IDE Code Stream Terminal Component
    ──────────────────────────────────────────────────────── */
 
 export default function StatusConsole() {
   const router = useRouter();
-  const [activeLine, setActiveLine] = useState(-1);
-  const [isVisible, setIsVisible] = useState(false);
-  const [bootDone, setBootDone] = useState(false);
+  const [activeLineIdx, setActiveLineIdx] = useState(-1);
+  const [typedLines, setTypedLines] = useState<number[]>([]);
+  const [bootFinished, setBootFinished] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [outputHistory, setOutputHistory] = useState<OutputLine[]>([]);
-  const [commandHistory, setCommandHistory] = useState<string[]>([]);
-  const [historyIndex, setHistoryIndex] = useState(-1);
+  const [timestamp, setTimestamp] = useState<string>("");
+  const [activeTab, setActiveTab] = useState<"code" | "shell">("code");
 
-  const ref = useRef<HTMLDivElement>(null);
+  const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const idCounter = useRef(0);
 
   const genId = () => `line-${++idCounter.current}`;
 
-  // Intersection Observer to start animation when in viewport
+  // Hydration-safe client timestamp
   useEffect(() => {
-    const el = ref.current;
+    setTimestamp(new Date().toISOString().slice(0, 19).replace("T", " "));
+  }, []);
+
+  // Viewport trigger for Style 24 IDE Code Stream typewriter
+  useEffect(() => {
+    const el = terminalRef.current;
     if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true);
+        if (entry.isIntersecting && activeLineIdx === -1) {
+          startCodeStream();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.25 }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [isVisible]);
+  }, [activeLineIdx]);
 
-  // Stagger boot lines after visible
-  useEffect(() => {
-    if (!isVisible) return;
-    let i = 0;
+  const startCodeStream = () => {
+    let current = 0;
     const interval = setInterval(() => {
-      setActiveLine(i);
-      i++;
-      if (i >= telemetryLines.length) {
+      setActiveLineIdx(current);
+      setTypedLines((prev) => [...prev, current]);
+      current++;
+      if (current >= IDE_CODE_LINES.length) {
         clearInterval(interval);
-        // Wait for last line typewriter to finish before enabling input
-        setTimeout(() => setBootDone(true), telemetryLines.length * 600 + 1200);
+        setTimeout(() => setBootFinished(true), 600);
       }
-    }, 600);
-    return () => clearInterval(interval);
-  }, [isVisible]);
-
-  // Auto-scroll on new output
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  }, [outputHistory, bootDone]);
-
-  // Focus input when boot finishes
-  useEffect(() => {
-    if (bootDone && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [bootDone]);
-
-  const appendOutput = useCallback((lines: OutputLine[]) => {
-    setOutputHistory((prev) => [
-      ...prev,
-      ...lines.map((l) => ({ ...l, id: genId() })),
-    ]);
-  }, []);
-
-  const handleCommand = useCallback(
-    (rawCmd: string) => {
-      const cmd = rawCmd.trim().toLowerCase();
-      if (!cmd) return;
-
-      // Log the command
-      setCommandHistory((prev) => [...prev, rawCmd.trim()]);
-      setHistoryIndex(-1);
-      appendOutput([{ id: genId(), type: "command", text: `guest@harshit_portfolio:~$ ${rawCmd.trim()}` }]);
-
-      // Parse
-      const parts = cmd.split(/\s+/);
-      const primary = parts[0];
-      const args = parts.slice(1).join(" ");
-
-      switch (primary) {
-        case "help":
-          appendOutput(HELP_OUTPUT);
-          break;
-
-        case "accuracy":
-          appendOutput(ACCURACY_OUTPUT);
-          break;
-
-        case "perf":
-        case "performance":
-          appendOutput(PERF_OUTPUT);
-          break;
-
-        case "matrix":
-          appendOutput(MATRIX_OUTPUT);
-          break;
-
-        case "navigate":
-        case "nav":
-        case "goto":
-        case "cd": {
-          const target = args.replace(/^\//, "");
-          if (NAV_PAGES.includes(target)) {
-            appendOutput([
-              { id: genId(), type: "success", text: `  ✓ Navigating to /${target}...` },
-            ]);
-            setTimeout(() => router.push(`/${target}`), 600);
-          } else {
-            appendOutput([
-              { id: genId(), type: "error", text: `  ✗ Unknown page: "${args || "(empty)"}"` },
-              { id: genId(), type: "output", text: `  Available: ${NAV_PAGES.join(", ")}` },
-            ]);
-          }
-          break;
-        }
-
-        case "search": {
-          if (!args) {
-            appendOutput([
-              { id: genId(), type: "error", text: "  ✗ Usage: search <query>" },
-              { id: genId(), type: "output", text: '  Example: search "python"' },
-            ]);
-            break;
-          }
-          const query = args.toLowerCase().replace(/['"]/g, "");
-          const matches = SEARCH_DB.filter((entry) => entry.tag.includes(query));
-          if (matches.length > 0) {
-            appendOutput([
-              { id: genId(), type: "header", text: `  ── Search results for "${query}" ──` },
-              ...matches.map((m) => ({
-                id: genId(),
-                type: "output" as const,
-                text: `  ${m.tag.toUpperCase().padEnd(22)} → ${m.projects.join(", ")}`,
-              })),
-              { id: genId(), type: "success", text: `  ✓ ${matches.length} tag(s) matched` },
-            ]);
-          } else {
-            appendOutput([
-              { id: genId(), type: "error", text: `  ✗ No results for "${query}"` },
-            ]);
-          }
-          break;
-        }
-
-        case "clear":
-          setOutputHistory([]);
-          break;
-
-        default:
-          appendOutput([
-            { id: genId(), type: "error", text: `  ✗ Command not found: "${primary}"` },
-            { id: genId(), type: "output", text: '  Type "help" for available commands' },
-          ]);
-      }
-    },
-    [appendOutput, router]
-  );
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleCommand(inputValue);
-      setInputValue("");
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      if (commandHistory.length > 0) {
-        const newIndex = historyIndex < commandHistory.length - 1 ? historyIndex + 1 : historyIndex;
-        setHistoryIndex(newIndex);
-        setInputValue(commandHistory[commandHistory.length - 1 - newIndex] || "");
-      }
-    } else if (e.key === "ArrowDown") {
-      e.preventDefault();
-      if (historyIndex > 0) {
-        const newIndex = historyIndex - 1;
-        setHistoryIndex(newIndex);
-        setInputValue(commandHistory[commandHistory.length - 1 - newIndex] || "");
-      } else {
-        setHistoryIndex(-1);
-        setInputValue("");
-      }
-    }
+    }, 450);
   };
 
-  const timestamp = new Date().toISOString().slice(0, 19).replace("T", " ");
+  const handleCommand = (e: React.FormEvent) => {
+    e.preventDefault();
+    const raw = inputValue.trim();
+    if (!raw) return;
 
-  const getLineColor = (type: OutputLine["type"]) => {
-    switch (type) {
-      case "command": return "text-zinc-500";
-      case "success": return "text-emerald-600";
-      case "error": return "text-red-500";
-      case "header": return "text-zinc-500";
-      default: return "text-zinc-600";
+    const cmd = raw.toLowerCase();
+    setInputValue("");
+
+    const newOutputs: OutputLine[] = [
+      { id: genId(), type: "command", text: `$ ${raw}` },
+    ];
+
+    if (cmd === "help") {
+      newOutputs.push(...HELP_OUTPUT);
+    } else if (cmd === "metrics" || cmd === "accuracy") {
+      newOutputs.push(...METRICS_OUTPUT);
+    } else if (cmd === "perf" || cmd === "performance") {
+      newOutputs.push(...PERF_OUTPUT);
+    } else if (cmd === "clear") {
+      setOutputHistory([]);
+      return;
+    } else if (cmd.startsWith("navigate") || cmd.startsWith("goto")) {
+      const parts = cmd.split(" ");
+      const dest = parts[1] || "projects";
+      newOutputs.push({
+        id: genId(),
+        type: "success",
+        text: `  ✓ Navigating to /${dest}...`,
+      });
+      setTimeout(() => router.push(`/${dest}`), 600);
+    } else {
+      newOutputs.push({
+        id: genId(),
+        type: "error",
+        text: `  ✗ Command not recognized: "${raw}". Type 'help' for available commands.`,
+      });
     }
+
+    setOutputHistory((prev) => [...prev, ...newOutputs]);
+    setTimeout(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      }
+    }, 50);
   };
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isVisible ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
-      className="rounded-lg border border-zinc-200 bg-zinc-50/80 backdrop-blur-sm overflow-hidden"
+    <div
+      ref={terminalRef}
+      className="rounded-xl border border-zinc-200/90 bg-white shadow-lg overflow-hidden flex flex-col font-mono text-xs max-w-4xl mx-auto"
     >
-      {/* Title bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-zinc-200 bg-white/60">
-        <div className="flex items-center gap-2">
-          <span className="flex gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+      {/* ────────────────────────────────────────────────────────
+          IDE Top Bar & Tabs (Style 24)
+          ──────────────────────────────────────────────────────── */}
+      <div className="flex items-center justify-between px-4 py-2.5 bg-zinc-100/80 border-b border-zinc-200 select-none">
+        {/* Window dots & Active File Tab */}
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+          </div>
+
+          <div className="flex items-center gap-1 ml-2">
+            <button
+              onClick={() => setActiveTab("code")}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded text-[10px] uppercase font-bold tracking-wider transition-colors ${
+                activeTab === "code"
+                  ? "bg-white text-black shadow-xs border border-zinc-200"
+                  : "text-zinc-500 hover:text-black"
+              }`}
+            >
+              <Code2 className="w-3.5 h-3.5 text-blue-600" />
+              telemetry_pipeline.py
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ml-1" />
+            </button>
+
+            <button
+              onClick={() => setActiveTab("shell")}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded text-[10px] uppercase font-bold tracking-wider transition-colors ${
+                activeTab === "shell"
+                  ? "bg-white text-black shadow-xs border border-zinc-200"
+                  : "text-zinc-500 hover:text-black"
+              }`}
+            >
+              <Terminal className="w-3.5 h-3.5 text-indigo-600" />
+              interactive_cli.sh
+            </button>
+          </div>
+        </div>
+
+        {/* Live Timestamp & Status */}
+        <div className="flex items-center gap-2 text-[10px] text-zinc-500">
+          <span className="hidden sm:inline-block font-mono text-zinc-400">
+            {timestamp || "LIVE TELEMETRY"}
           </span>
-          <span className="text-[9px] uppercase tracking-widest text-zinc-400 font-semibold ml-2">
-            system diagnostics — harshit_portfolio
+          <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200 text-[9px] uppercase tracking-wider">
+            15 Hz SYNC
           </span>
         </div>
-        <span className="text-[9px] font-mono text-zinc-400">{timestamp}</span>
       </div>
 
-      {/* Console body */}
+      {/* ────────────────────────────────────────────────────────
+          Terminal Body: Code Stream or Interactive Shell
+          ──────────────────────────────────────────────────────── */}
       <div
         ref={scrollRef}
-        className="p-3 sm:p-4 flex flex-col gap-1.5 max-h-[420px] overflow-y-auto overflow-x-hidden"
+        className="p-4 sm:p-6 bg-zinc-950 text-zinc-200 min-h-[300px] max-h-[420px] overflow-y-auto"
         onClick={() => inputRef.current?.focus()}
       >
-        {/* Boot header */}
-        <div className="font-mono text-[9px] sm:text-[10px] text-zinc-400 mb-2">
-          <span className="text-zinc-500">$</span> diagnostics --run-all --format=compact
-        </div>
+        {activeTab === "code" ? (
+          <div className="flex flex-col gap-2">
+            {IDE_CODE_LINES.map((line, idx) => {
+              const isTyped = typedLines.includes(idx);
+              const isCurrent = activeLineIdx === idx;
 
-        {/* Boot sequence */}
-        {telemetryLines.map((line, i) => (
-          <TerminalLine
-            key={line.label}
-            line={line}
-            index={i}
-            activeLine={activeLine}
-          />
-        ))}
+              return (
+                <div
+                  key={line.num}
+                  className={`flex items-center gap-3 transition-opacity duration-300 ${
+                    isTyped ? "opacity-100" : "opacity-20"
+                  }`}
+                >
+                  {/* IDE Gutter Line Number */}
+                  <span className="w-8 text-right text-zinc-500 font-mono select-none text-xs sm:text-sm border-r border-zinc-800 pr-3">
+                    {line.num}
+                  </span>
 
-        {/* Boot complete message */}
-        {activeLine >= telemetryLines.length - 1 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="font-mono text-[9px] sm:text-[10px] text-zinc-400 mt-3 pt-2 border-t border-zinc-200"
-          >
-            <span className="text-emerald-500">✓</span> All systems operational — {telemetryLines.length} modules verified
-          </motion.div>
-        )}
+                  {/* Code Line Content */}
+                  <div className="flex items-center gap-3.5 flex-wrap flex-1 min-w-0">
+                    <span className="font-mono text-sm sm:text-[15px] text-zinc-200 leading-relaxed">
+                      {line.code}
+                    </span>
 
-        {/* Interactive prompt welcome */}
-        <AnimatePresence>
-          {bootDone && outputHistory.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ delay: 0.3, duration: 0.4 }}
-              className="font-mono text-[9px] sm:text-[10px] text-zinc-400 mt-2 pt-2 border-t border-zinc-100"
-            >
-              <span className="text-sky-500">ℹ</span> Interactive shell ready — type <span className="text-zinc-600 font-semibold">help</span> to see available commands
-            </motion.div>
-          )}
-        </AnimatePresence>
+                    {/* Blinking Caret on Active Typing Line */}
+                    {isCurrent && (
+                      <motion.span
+                        animate={{ opacity: [1, 0, 1] }}
+                        transition={{ duration: 0.6, repeat: Infinity }}
+                        className="w-2.5 h-4.5 bg-emerald-400 inline-block align-middle shadow-[0_0_8px_rgba(16,185,129,0.9)]"
+                      />
+                    )}
 
-        {/* Command output history */}
-        {outputHistory.map((line) => (
-          <div
-            key={line.id}
-            className={`font-mono text-[9px] sm:text-[10px] md:text-[11px] leading-relaxed whitespace-pre-wrap break-words ${getLineColor(line.type)}`}
-          >
-            {line.text}
+                    {/* Inline Status Badge */}
+                    {isTyped && line.badge && (
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className={`text-[10px] sm:text-xs font-mono px-2.5 py-1 rounded-md font-bold uppercase tracking-wider ml-auto shadow-sm ${
+                          line.badgeClass || "text-zinc-400 bg-zinc-900"
+                        }`}
+                      >
+                        {line.badge}
+                      </motion.span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Quick-Action Bar once code stream completes */}
+            {bootFinished && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-6 pt-4 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-3 text-xs"
+              >
+                <div className="flex items-center gap-2 text-emerald-400 font-mono font-bold">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>All 7 telemetry streams nominal (15 Hz)</span>
+                </div>
+
+                <div className="flex items-center gap-2.5">
+                  <span className="text-zinc-400 text-xs uppercase tracking-wider font-semibold">Quick Commands:</span>
+                  <button
+                    onClick={() => {
+                      setActiveTab("shell");
+                      setInputValue("metrics");
+                    }}
+                    className="px-3 py-1.5 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-100 text-xs font-mono font-semibold transition-colors border border-zinc-700"
+                  >
+                    metrics
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveTab("shell");
+                      setInputValue("perf");
+                    }}
+                    className="px-3 py-1.5 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-100 text-xs font-mono font-semibold transition-colors border border-zinc-700"
+                  >
+                    perf
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("shell")}
+                    className="px-3 py-1.5 rounded-md bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-mono font-bold transition-colors flex items-center gap-1.5 shadow-sm"
+                  >
+                    <Terminal className="w-3.5 h-3.5" />
+                    Open Shell
+                  </button>
+                </div>
+              </motion.div>
+            )}
           </div>
-        ))}
+        ) : (
+          /* Interactive Shell View */
+          <div className="flex flex-col gap-2.5">
+            <div className="text-zinc-400 text-xs sm:text-sm mb-2 font-mono">
+              Type <span className="text-emerald-400 font-bold">&apos;metrics&apos;</span>, <span className="text-emerald-400 font-bold">&apos;perf&apos;</span>, or <span className="text-emerald-400 font-bold">&apos;help&apos;</span> to interact with the runtime.
+            </div>
 
-        {/* Active input prompt */}
-        {bootDone && (
-          <div className="flex items-center gap-0 font-mono text-[9px] sm:text-[10px] md:text-[11px] mt-1">
-            <span className="text-emerald-500 shrink-0">guest@harshit_portfolio</span>
-            <span className="text-zinc-400 shrink-0">:~$&nbsp;</span>
-            <input
-              ref={inputRef}
-              type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyDown={handleKeyDown}
-              spellCheck={false}
-              autoComplete="off"
-              className="flex-1 bg-transparent border-none outline-none text-zinc-700 font-mono text-[9px] sm:text-[10px] md:text-[11px] caret-emerald-500 placeholder-zinc-300 min-w-0"
-              placeholder="type a command..."
-            />
+            {outputHistory.map((item) => (
+              <div
+                key={item.id}
+                className={`font-mono text-xs sm:text-sm leading-relaxed ${
+                  item.type === "command"
+                    ? "text-zinc-300 font-bold"
+                    : item.type === "success"
+                    ? "text-emerald-400 font-semibold"
+                    : item.type === "error"
+                    ? "text-red-400"
+                    : item.type === "header"
+                    ? "text-indigo-300 font-bold"
+                    : "text-zinc-300"
+                }`}
+              >
+                {item.text}
+              </div>
+            ))}
+
+            {/* Interactive Shell Prompt with Blinking Caret */}
+            <form onSubmit={handleCommand} className="flex items-center gap-2.5 mt-3 pt-3 border-t border-zinc-800">
+              <span className="text-emerald-400 font-bold select-none text-xs sm:text-sm font-mono">
+                harshit@portfolio:~$
+              </span>
+              <input
+                ref={inputRef}
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="type 'metrics' or 'help'..."
+                className="flex-1 bg-transparent text-white font-mono text-xs sm:text-sm outline-none border-none placeholder-zinc-600"
+                autoFocus
+              />
+              <button
+                type="submit"
+                className="text-zinc-400 hover:text-white p-1 transition-colors"
+                aria-label="Run command"
+              >
+                <CornerDownLeft className="w-4 h-4" />
+              </button>
+            </form>
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }

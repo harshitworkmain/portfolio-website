@@ -4,36 +4,33 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 /* ────────────────────────────────────────────────────────
-   Tech Stack Data — official brand colours per icon
+   Honest Tech Stack Data — Verified from Projects & Resume
    ──────────────────────────────────────────────────────── */
 
 interface TechItem {
   name: string;
+  tag: string;
   icon: React.ReactNode;
 }
 
 interface TechCategory {
+  id: string;
   label: string;
+  subtitle: string;
   items: TechItem[];
 }
 
 const categories: TechCategory[] = [
   {
-    label: "Languages",
+    id: "data-science-ml",
+    label: "Data Science & Predictive ML",
+    subtitle: "Recurrent architectures, stochastic state estimation, and statistical modeling",
     items: [
       {
-        name: "C",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#659AD2" d="M115.4 30.7L67.1 2.9c-1.7-1-4.5-1-6.2 0L12.6 30.7c-1.7 1-3.1 3.5-3.1 5.5v55.7c0 2 1.4 4.5 3.1 5.5l48.3 27.8c1.7 1 4.5 1 6.2 0l48.3-27.8c1.7-1 3.1-3.5 3.1-5.5V36.2c.1-2-1.3-4.5-3.1-5.5zM64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5 24.5 11 24.5 24.5-11 24.5-24.5 24.5z"/>
-            <path fill="#fff" d="M64 44.5c-10.8 0-19.5 8.7-19.5 19.5S53.2 83.5 64 83.5 83.5 74.8 83.5 64 74.8 44.5 64 44.5zm0 34c-8 0-14.5-6.5-14.5-14.5S56 49.5 64 49.5 78.5 56 78.5 64 72 78.5 64 78.5z"/>
-          </svg>
-        ),
-      },
-      {
         name: "Python",
+        tag: "Core Language",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
             <linearGradient id="pyA" x1="12.959" x2="79.639" y1="12.039" y2="78.719" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#387eb8"/><stop offset="1" stopColor="#366994"/></linearGradient>
             <linearGradient id="pyB" x1="49.414" x2="110.008" y1="56.648" y2="118.738" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#ffe052"/><stop offset="1" stopColor="#ffc331"/></linearGradient>
             <path fill="url(#pyA)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"/>
@@ -42,50 +39,99 @@ const categories: TechCategory[] = [
         ),
       },
       {
-        name: "Java",
+        name: "PyTorch",
+        tag: "Deep Learning",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#0074BD" d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z"/>
-            <path fill="#EA2D2E" d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z"/>
-            <path fill="#0074BD" d="M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468zM49.912 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643zm40.697 22.747c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0-.002.359-.327.468-.617z"/>
-            <path fill="#EA2D2E" d="M76.491 1.587S89.459 14.563 63.056 31.071c-21.222 13.278-4.836 20.852-.003 29.51C50.837 49.104 41.106 39.666 47.754 30.944 57.571 17.972 81.35 11.647 76.491 1.587z"/>
-            <path fill="#0074BD" d="M52.214 126.021c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 .001 2.875 2.381 17.647 3.331z"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#EE4C2C" d="M64.3 8.7L40.6 32.4c-16 16-16 41.8 0 57.7 16 16 41.8 16 57.7 0 16-16 16-41.8 0-57.7L89.7 41l-8.6 8.6 8.6 8.6c9.3 9.3 9.3 24.5 0 33.8s-24.5 9.3-33.8 0-9.3-24.5 0-33.8l17-17 8.6-8.6L64.3 8.7z"/>
+            <circle fill="#EE4C2C" cx="89" cy="26" r="7"/>
           </svg>
         ),
       },
       {
-        name: "HTML",
+        name: "Scikit-Learn",
+        tag: "Statistical ML",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/>
-            <path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"/>
-            <path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/>
-            <path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#F89939" d="M38 24h52v80H38z" rx="8" />
+            <circle cx="50" cy="50" r="14" fill="#3499CD"/>
+            <circle cx="78" cy="78" r="14" fill="#F89939"/>
+            <line x1="50" y1="50" x2="78" y2="78" stroke="#fff" strokeWidth="4"/>
           </svg>
         ),
       },
       {
-        name: "CSS",
+        name: "NumPy",
+        tag: "Vectorized Math",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543z"/>
-            <path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16z"/>
-            <path fill="#fff" d="M64.001 51.429h18.302l1.264-14.163H64.001V24.208h34.682l-.332 3.711-3.4 38.114H64.001z"/>
-            <path fill="#EBEBEB" d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018z"/>
-            <path fill="#fff" d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881z"/>
-            <path fill="#EBEBEB" d="M64.048 24.208v13.058H30.64l-.277-3.108-.633-7.059-.33-2.891zm-.047 27.221v13.157H46.119l-.277-3.108-.634-7.059-.33-2.99z"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#4DABCF" d="M64 16L28 36v56l36 20 36-20V36L64 16zm0 8l28 16v40L64 96 36 80V40l28-16z"/>
+            <path fill="#4D77CF" d="M64 24L36 40v40l28 16V24z"/>
+            <text x="44" y="78" fontFamily="sans-serif" fontWeight="bold" fontSize="32" fill="#fff">N</text>
+          </svg>
+        ),
+      },
+      {
+        name: "Pandas",
+        tag: "Data Ingestion",
+        icon: (
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <rect x="34" y="16" width="12" height="32" rx="2" fill="#130754"/>
+            <rect x="34" y="56" width="12" height="56" rx="2" fill="#130754"/>
+            <rect x="58" y="24" width="12" height="80" rx="2" fill="#130754"/>
+            <rect x="82" y="16" width="12" height="56" rx="2" fill="#130754"/>
+            <rect x="82" y="80" width="12" height="32" rx="2" fill="#130754"/>
+            <rect x="52" y="108" width="24" height="8" rx="2" fill="#E70488"/>
+          </svg>
+        ),
+      },
+      {
+        name: "Stacked LSTMs",
+        tag: "Time-Series",
+        icon: (
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <rect x="20" y="30" width="88" height="68" rx="10" fill="none" stroke="#4f46e5" strokeWidth="6"/>
+            <path d="M30 64 Q 45 40, 64 64 T 98 64" fill="none" stroke="#059669" strokeWidth="6" strokeLinecap="round"/>
+          </svg>
+        ),
+      },
+      {
+        name: "Extended Kalman Filter",
+        tag: "State Estimation",
+        icon: (
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <circle cx="64" cy="64" r="44" fill="none" stroke="#0284c7" strokeWidth="6"/>
+            <circle cx="64" cy="64" r="22" fill="none" stroke="#d97706" strokeWidth="4" strokeDasharray="6 4"/>
+            <circle cx="64" cy="64" r="6" fill="#0284c7"/>
+          </svg>
+        ),
+      },
+      {
+        name: "NetworkX",
+        tag: "Graph Diffusion",
+        icon: (
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <circle cx="36" cy="40" r="12" fill="#6366f1"/>
+            <circle cx="92" cy="40" r="12" fill="#6366f1"/>
+            <circle cx="64" cy="90" r="12" fill="#6366f1"/>
+            <line x1="36" y1="40" x2="92" y2="40" stroke="#6366f1" strokeWidth="4"/>
+            <line x1="36" y1="40" x2="64" y2="90" stroke="#6366f1" strokeWidth="4"/>
+            <line x1="92" y1="40" x2="64" y2="90" stroke="#6366f1" strokeWidth="4"/>
           </svg>
         ),
       },
     ],
   },
   {
-    label: "Frameworks & Libraries",
+    id: "applied-ml-perception",
+    label: "Applied ML & Perception",
+    subtitle: "Computer vision, edge inference, real-time tracking, and sensor fusion",
     items: [
       {
         name: "OpenCV",
+        tag: "Computer Vision",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
             <circle cx="64" cy="64" r="28" fill="none" stroke="#5C3EE8" strokeWidth="8"/>
             <circle cx="36" cy="90" r="12" fill="#FF0000"/>
             <circle cx="92" cy="90" r="12" fill="#00AA00"/>
@@ -94,27 +140,10 @@ const categories: TechCategory[] = [
         ),
       },
       {
-        name: "PyTorch",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#EE4C2C" d="M64.3 8.7L40.6 32.4c-16 16-16 41.8 0 57.7 16 16 41.8 16 57.7 0 16-16 16-41.8 0-57.7L89.7 41l-8.6 8.6 8.6 8.6c9.3 9.3 9.3 24.5 0 33.8s-24.5 9.3-33.8 0-9.3-24.5 0-33.8l17-17 8.6-8.6L64.3 8.7z"/>
-            <circle fill="#EE4C2C" cx="89" cy="26" r="7"/>
-          </svg>
-        ),
-      },
-      {
-        name: "TensorFlow",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#FF6F00" d="M64 4L16 28v72l48 24 48-24V28L64 4zm0 10.4L100 36v56L64 113.6 28 92V36L64 14.4z"/>
-            <path fill="#FF6F00" d="M64 30L40 42v36l24 12 24-12V42L64 30zm0 8l16 8v24L64 78 48 70V46l16-8z"/>
-          </svg>
-        ),
-      },
-      {
         name: "YOLOv8",
+        tag: "Real-Time Detection",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
             <rect x="20" y="20" width="88" height="88" rx="12" fill="none" stroke="#6C3BAA" strokeWidth="6"/>
             <rect x="40" y="40" width="20" height="20" rx="2" fill="#6C3BAA" opacity="0.6"/>
             <rect x="68" y="40" width="20" height="20" rx="2" fill="#6C3BAA" opacity="0.8"/>
@@ -124,9 +153,24 @@ const categories: TechCategory[] = [
         ),
       },
       {
-        name: "ROS 2",
+        name: "MediaPipe",
+        tag: "Face & Hand Meshes",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#0097A7" d="M64 20L28 42v44l36 22 36-22V42L64 20z"/>
+            <circle cx="64" cy="52" r="8" fill="#fff"/>
+            <circle cx="48" cy="72" r="6" fill="#fff"/>
+            <circle cx="80" cy="72" r="6" fill="#fff"/>
+            <line x1="64" y1="58" x2="50" y2="68" stroke="#fff" strokeWidth="2.5"/>
+            <line x1="64" y1="58" x2="78" y2="68" stroke="#fff" strokeWidth="2.5"/>
+          </svg>
+        ),
+      },
+      {
+        name: "ROS 2",
+        tag: "Robotics Stack",
+        icon: (
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
             <circle cx="64" cy="64" r="44" fill="none" stroke="#22314E" strokeWidth="6"/>
             <circle cx="64" cy="30" r="8" fill="#22314E"/>
             <circle cx="34" cy="84" r="8" fill="#22314E"/>
@@ -138,172 +182,156 @@ const categories: TechCategory[] = [
         ),
       },
       {
-        name: "NumPy",
+        name: "LiDAR Processing",
+        tag: "3,600 pts/sec Filter",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#4DABCF" d="M64 16L28 36v56l36 20 36-20V36L64 16zm0 8l28 16v40L64 96 36 80V40l28-16z"/>
-            <path fill="#4D77CF" d="M64 24L36 40v40l28 16V24z"/>
-            <text x="44" y="78" fontFamily="sans-serif" fontWeight="bold" fontSize="32" fill="#fff">N</text>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path d="M20 100 A 50 50 0 0 1 108 100" fill="none" stroke="#10b981" strokeWidth="6"/>
+            <path d="M35 100 A 35 35 0 0 1 93 100" fill="none" stroke="#10b981" strokeWidth="6" strokeDasharray="4 4"/>
+            <circle cx="64" cy="100" r="8" fill="#10b981"/>
           </svg>
         ),
       },
       {
-        name: "Pandas",
+        name: "WebGL Inference",
+        tag: "Client-Side GPU",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <rect x="34" y="16" width="12" height="32" rx="2" fill="#130754"/>
-            <rect x="34" y="56" width="12" height="56" rx="2" fill="#130754"/>
-            <rect x="58" y="24" width="12" height="80" rx="2" fill="#130754"/>
-            <rect x="82" y="16" width="12" height="56" rx="2" fill="#130754"/>
-            <rect x="82" y="80" width="12" height="32" rx="2" fill="#130754"/>
-            <rect x="52" y="108" width="24" height="8" rx="2" fill="#E70488"/>
-          </svg>
-        ),
-      },
-      {
-        name: "MediaPipe",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#0097A7" d="M64 20L28 42v44l36 22 36-22V42L64 20z"/>
-            <circle cx="64" cy="52" r="8" fill="#fff"/>
-            <circle cx="48" cy="72" r="6" fill="#fff"/>
-            <circle cx="80" cy="72" r="6" fill="#fff"/>
-            <line x1="64" y1="58" x2="50" y2="68" stroke="#fff" strokeWidth="2.5"/>
-            <line x1="64" y1="58" x2="78" y2="68" stroke="#fff" strokeWidth="2.5"/>
-          </svg>
-        ),
-      },
-      {
-        name: "CVZone",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <rect x="20" y="20" width="88" height="88" rx="16" fill="#2196F3"/>
-            <text x="32" y="82" fontFamily="sans-serif" fontWeight="bold" fontSize="40" fill="#fff">CV</text>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <polygon points="64,20 108,44 108,84 64,108 20,84 20,44" fill="none" stroke="#990000" strokeWidth="6"/>
+            <polygon points="64,36 92,52 92,76 64,92 36,76 36,52" fill="#990000" opacity="0.6"/>
           </svg>
         ),
       },
     ],
   },
   {
-    label: "Systems & Platforms",
+    id: "data-engineering-systems",
+    label: "Data Engineering & Systems",
+    subtitle: "High-throughput telemetry streams, shared memory, and Linux orchestration",
     items: [
       {
-        name: "Linux",
+        name: "PostgreSQL",
+        tag: "Relational Schemas",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#333" d="M64 6C38.6 6 18 26.6 18 52c0 16.2 8.4 30.4 21 38.6l-3 14.4h56l-3-14.4C101.6 82.4 110 68.2 110 52 110 26.6 89.4 6 64 6z"/>
-            <circle cx="50" cy="46" r="6" fill="#fff"/>
-            <circle cx="78" cy="46" r="6" fill="#fff"/>
-            <circle cx="50" cy="46" r="3" fill="#000"/>
-            <circle cx="78" cy="46" r="3" fill="#000"/>
-            <path fill="#FBC02D" d="M64 100c-8 0-14-3-14-3l2-8s5 3 12 3 12-3 12-3l2 8s-6 3-14 3z"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#336791" d="M64 12C35.3 12 12 35.3 12 64s23.3 52 52 52 52-23.3 52-52S92.7 12 64 12zm0 94c-23.2 0-42-18.8-42-42S40.8 22 64 22s42 18.8 42 42-18.8 42-42 42z"/>
+            <path fill="#336791" d="M78 48c-3-6-9-10-16-10s-13 4-16 10c-5 10-2 22 7 28v12h18V76c9-6 12-18 7-28z"/>
           </svg>
         ),
       },
       {
-        name: "ROS 2 Middleware",
+        name: "SQLite",
+        tag: "Local Datastores",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <rect x="16" y="16" width="96" height="96" rx="12" fill="#22314E"/>
-            <text x="24" y="78" fontFamily="monospace" fontWeight="bold" fontSize="28" fill="#fff">ROS</text>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <rect x="24" y="24" width="80" height="80" rx="16" fill="#003B57"/>
+            <text x="32" y="78" fontFamily="sans-serif" fontWeight="bold" fontSize="30" fill="#00ADEF">SQL</text>
           </svg>
         ),
       },
       {
-        name: "Data Pipelines",
+        name: "Shared Memory",
+        tag: "/dev/shm Zero-Copy",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path d="M20 44h28l12 20-12 20H20l12-20L20 44z" fill="#4CAF50"/>
-            <path d="M52 44h28l12 20-12 20H52l12-20L52 44z" fill="#2196F3"/>
-            <path d="M84 44h24l-12 20 12 20H84l-12-20 12-20z" fill="#FF9800"/>
-          </svg>
-        ),
-      },
-    ],
-  },
-  {
-    label: "Dev Tools",
-    items: [
-      {
-        name: "VS Code",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fill="#0065A9" d="M96.4 6.4l-26 20L42 6.4 6.4 24v80l35.6 17.6 28.4-20 26 20L121.6 104V24L96.4 6.4zM42 88.4L22 76V52l20-12.4v48.8zm48 0l-20 12.4V39.6L90 52v36.4z"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <rect x="20" y="36" width="40" height="56" rx="6" fill="#059669"/>
+            <rect x="68" y="36" width="40" height="56" rx="6" fill="#059669" opacity="0.6"/>
+            <path d="M40 64 h48" stroke="#fff" strokeWidth="6" strokeDasharray="4 2"/>
           </svg>
         ),
       },
       {
-        name: "Git",
+        name: "Linux / Ubuntu",
+        tag: "Server OS",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <circle cx="64" cy="64" r="54" fill="#E95420"/>
+            <circle cx="64" cy="64" r="30" fill="#fff"/>
+            <circle cx="64" cy="64" r="18" fill="#E95420"/>
+          </svg>
+        ),
+      },
+      {
+        name: "Docker",
+        tag: "Microservices",
+        icon: (
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#2496ED" d="M120 54c-1.8-1.2-5.7-1.7-8.8-1.1-1.3-4.3-4.7-7.7-9.4-9.3-5.5-1.9-11.8-.7-16.1 3-1.6.4-3.1 1-4.6 1.7V42H65v12h14v-4h-8v-4h6V34H65v4h-6v12h10v-4h-8v-4h2V30H51v20h12v-4h-8v-4h6V34H51v4h-6v12h10v-4h-8v-4h2V30H37v20h12v-4h-8v-4h6V34H37v16H23v-6H11v6H5c-3 8-1 18 6 25 10 10 24 16 38 16 28 0 54-15 67-40 2.2-4.2 3.6-8.8 4-13.5v-.5z"/>
+          </svg>
+        ),
+      },
+      {
+        name: "Git & GitHub",
+        tag: "Version Control",
+        icon: (
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
             <path fill="#F05032" d="M124.742 58.378L69.622 3.258c-3.678-3.678-9.64-3.678-13.318 0l-11.436 11.436 14.47 14.47c3.37-1.14 7.226-.4 9.908 2.282 2.698 2.698 3.426 6.588 2.264 9.966l13.94 13.94c3.378-1.162 7.268-.434 9.966 2.264 3.77 3.77 3.77 9.882 0 13.652-3.77 3.77-9.882 3.77-13.652 0-2.84-2.84-3.544-7.018-2.116-10.496L66.14 47.264v35.284c.93.462 1.812 1.074 2.596 1.858 3.77 3.77 3.77 9.882 0 13.652-3.77 3.77-9.882 3.77-13.652 0-3.77-3.77-3.77-9.882 0-13.652.936-.936 2.016-1.636 3.174-2.128V46.598c-1.158-.492-2.238-1.192-3.174-2.128-2.858-2.858-3.55-7.068-2.096-10.558L38.86 19.784 3.258 55.386c-3.678 3.678-3.678 9.64 0 13.318l55.12 55.12c3.678 3.678 9.64 3.678 13.318 0l53.046-53.046c3.678-3.678 3.678-9.64 0-13.318z"/>
           </svg>
         ),
       },
-      {
-        name: "GitHub",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path fillRule="evenodd" clipRule="evenodd" fill="#333" d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19A57.89 57.89 0 0164 33.53a57.9 57.9 0 0115.155 2.039c11.523-7.813 16.587-6.19 16.587-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"/>
-          </svg>
-        ),
-      },
     ],
   },
   {
-    label: "Professional Skills",
+    id: "software-web-architecture",
+    label: "Software & Web Architecture",
+    subtitle: "Full-stack interfaces, reactive telemetry streams, and REST API microservices",
     items: [
       {
-        name: "Software Design",
+        name: "Next.js 16",
+        tag: "React Framework",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <rect x="20" y="20" width="88" height="88" rx="14" fill="none" stroke="#555" strokeWidth="5"/>
-            <path d="M44 48l-12 16 12 16M84 48l12 16-12 16" stroke="#555" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-            <line x1="70" y1="40" x2="58" y2="88" stroke="#555" strokeWidth="5" strokeLinecap="round"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <circle cx="64" cy="64" r="64" fill="#000"/>
+            <path fill="#fff" d="M102.5 106.8L51.8 41.5H41.5v44.9h8.5V54.4l45.4 58.7c2.4-2 4.8-4.2 7.1-6.3zM78 41.5h8.5v28.8L78 59.5V41.5z"/>
           </svg>
         ),
       },
       {
-        name: "Debugging",
+        name: "React 19",
+        tag: "UI Architecture",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <circle cx="64" cy="64" r="40" fill="none" stroke="#E53935" strokeWidth="5"/>
-            <path d="M44 64h40M64 44v40" stroke="#E53935" strokeWidth="5" strokeLinecap="round"/>
-            <circle cx="64" cy="64" r="12" fill="#E53935" opacity="0.3"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <circle cx="64" cy="64" r="11" fill="#61DAFB"/>
+            <ellipse cx="64" cy="64" rx="52" ry="20" fill="none" stroke="#61DAFB" strokeWidth="4.5"/>
+            <ellipse cx="64" cy="64" rx="52" ry="20" fill="none" stroke="#61DAFB" strokeWidth="4.5" transform="rotate(60 64 64)"/>
+            <ellipse cx="64" cy="64" rx="52" ry="20" fill="none" stroke="#61DAFB" strokeWidth="4.5" transform="rotate(120 64 64)"/>
           </svg>
         ),
       },
       {
-        name: "Problem-Solving",
+        name: "TypeScript",
+        tag: "Typed Systems",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <path d="M64 20c-22 0-40 16-40 36 0 12 6 22 16 28v16h48V84c10-6 16-16 16-28 0-20-18-36-40-36z" fill="none" stroke="#FFA000" strokeWidth="5"/>
-            <line x1="48" y1="108" x2="80" y2="108" stroke="#FFA000" strokeWidth="5" strokeLinecap="round"/>
-            <line x1="64" y1="44" x2="64" y2="72" stroke="#FFA000" strokeWidth="4" strokeLinecap="round"/>
-            <circle cx="64" cy="80" r="3" fill="#FFA000"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#3178C6" d="M1.5 1.5h125v125H1.5z"/>
+            <path fill="#fff" d="M68.7 89.2c-2.4 1.4-5.3 2.1-8.7 2.1-9.1 0-14.8-5.7-14.8-15.1V55.6h-11v-9.5h11V31.5h9.8v14.6h13.7v9.5H65v19.4c0 4.1 2.4 6.3 6.4 6.3 2.5 0 4.7-.6 6.3-1.6l1 9zM102.7 75.8c0 4.8-2 8.7-6 11.6-4 2.9-9.5 4.4-16.5 4.4-4.8 0-9.4-.8-13.8-2.5v-10c4.5 2.5 9.1 3.7 13.8 3.7 3.5 0 6.2-.7 8.1-2 1.9-1.4 2.9-3.2 2.9-5.6 0-1.8-.7-3.4-2-4.6-1.4-1.2-3.8-2.6-7.3-4.1-5.7-2.4-9.8-5.1-12.4-7.9-2.5-2.8-3.8-6.6-3.8-11.2 0-4.6 1.9-8.4 5.7-11.3 3.8-2.9 9-4.3 15.6-4.3 4.2 0 8.3.7 12.3 2v9.6c-3.9-1.9-7.9-2.9-12-2.9-3.2 0-5.7.7-7.4 2-1.7 1.3-2.6 3.1-2.6 5.2 0 1.9.7 3.4 2 4.6 1.3 1.2 3.6 2.5 6.9 3.9 5.8 2.5 10 5.2 12.6 8.1 2.8 2.8 4.2 6.5 4.2 11z"/>
           </svg>
         ),
       },
       {
-        name: "Collaboration",
+        name: "Node.js & Express",
+        tag: "REST API Microservices",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <circle cx="44" cy="44" r="14" fill="none" stroke="#1976D2" strokeWidth="5"/>
-            <circle cx="84" cy="44" r="14" fill="none" stroke="#1976D2" strokeWidth="5"/>
-            <path d="M24 96c0-16 12-28 28-28h4c-4 4-8 12-8 20v8H24z" fill="#1976D2" opacity="0.6"/>
-            <path d="M104 96c0-16-12-28-28-28h-4c4 4 8 12 8 20v8h24z" fill="#1976D2" opacity="0.6"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#539E43" d="M64 8.7L14.4 37.3v57.4L64 123.3l49.6-28.6V37.3L64 8.7zm0 18.2l34.5 19.9v39.8L64 106.5 29.5 86.6V46.8L64 26.9z"/>
           </svg>
         ),
       },
       {
-        name: "Time Management",
+        name: "Tailwind CSS v4",
+        tag: "Design System",
         icon: (
-          <svg viewBox="0 0 128 128" className="h-8 w-8">
-            <circle cx="64" cy="68" r="40" fill="none" stroke="#388E3C" strokeWidth="5"/>
-            <line x1="64" y1="68" x2="64" y2="44" stroke="#388E3C" strokeWidth="5" strokeLinecap="round"/>
-            <line x1="64" y1="68" x2="82" y2="68" stroke="#388E3C" strokeWidth="4" strokeLinecap="round"/>
-            <circle cx="64" cy="68" r="4" fill="#388E3C"/>
-            <line x1="64" y1="20" x2="64" y2="28" stroke="#388E3C" strokeWidth="4" strokeLinecap="round"/>
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#06B6D4" d="M64 32C42.7 32 29.3 42.7 24 64c8-10.7 17.3-14.7 28-12 6.1 1.5 10.5 5.9 15.3 10.9 7.9 8 17 17.1 36.7 17.1 21.3 0 34.7-10.7 40-32-8 10.7-17.3 14.7-28 12-6.1-1.5-10.5-5.9-15.3-10.9-7.9-8-17-17.1-36.7-17.1zM24 64c-21.3 0-34.7 10.7-40 32 8-10.7 17.3-14.7 28-12 6.1 1.5 10.5 5.9 15.3 10.9 7.9 8 17 17.1 36.7 17.1 21.3 0 34.7-10.7 40-32-8 10.7-17.3 14.7-28 12-6.1-1.5-10.5-5.9-15.3-10.9-7.9-8-17-17.1-36.7-17.1z"/>
+          </svg>
+        ),
+      },
+      {
+        name: "Framer Motion",
+        tag: "Spring Physics",
+        icon: (
+          <svg viewBox="0 0 128 128" className="h-7 w-7">
+            <path fill="#0055FF" d="M20 20h88v44H64zM20 64h44l44 44H20zM64 64l44-44v44z"/>
           </svg>
         ),
       },
@@ -312,63 +340,96 @@ const categories: TechCategory[] = [
 ];
 
 /* ────────────────────────────────────────────────────────
-   Component
+   Component — Style 37 Dynamic Pill Switcher
    ──────────────────────────────────────────────────────── */
 
 export default function TechMatrix() {
-  const [activeCategory, setActiveCategory] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Category Tabs */}
-      <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-        {categories.map((cat, i) => (
-          <button
-            key={cat.label}
-            onClick={() => setActiveCategory(i)}
-            className={`px-4 py-2 rounded text-[10px] font-semibold tracking-widest uppercase transition-all duration-300 border ${
-              activeCategory === i
-                ? "bg-black text-white border-black"
-                : "bg-white text-zinc-400 border-zinc-200 hover:text-black hover:border-zinc-400"
-            }`}
-          >
-            {cat.label}
-          </button>
-        ))}
+      {/* Category Tabs with Style 37 Sliding LayoutId Pill */}
+      <div className="flex flex-wrap gap-2 p-1.5 rounded-2xl border border-zinc-200/90 bg-zinc-100/70 backdrop-blur-sm max-w-fit shadow-xs">
+        {categories.map((cat, i) => {
+          const isActive = activeTab === i;
+          return (
+            <button
+              key={cat.id}
+              onClick={() => setActiveTab(i)}
+              className="relative px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm tracking-wide uppercase select-none transition-colors duration-200"
+            >
+              {/* Style 37 Sliding layoutId pill */}
+              {isActive && (
+                <motion.div
+                  layoutId="activeTechTab"
+                  transition={{
+                    type: "spring",
+                    stiffness: 450,
+                    damping: 32,
+                  }}
+                  className="absolute inset-0 rounded-xl bg-black shadow-md"
+                />
+              )}
+
+              {/* Text snap (Style 37: crisp weight transition and contrast) */}
+              <span
+                className={`relative z-10 transition-all duration-200 ${
+                  isActive
+                    ? "font-black text-white"
+                    : "font-bold text-zinc-650 hover:text-black"
+                }`}
+              >
+                {cat.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
-      {/* Icons Grid */}
+      {/* Category Subtitle */}
       <motion.div
-        key={activeCategory}
+        key={categories[activeTab].subtitle}
+        initial={{ opacity: 0, y: 4 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-indigo-50/80 border border-indigo-200/60 max-w-fit text-xs sm:text-sm font-mono font-bold text-indigo-900"
+      >
+        <span className="text-indigo-500 font-mono">//</span>
+        <span>{categories[activeTab].subtitle}</span>
+      </motion.div>
+
+      {/* Grid of Verified Tech Items */}
+      <motion.div
+        key={activeTab}
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35 }}
-        className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-4"
+        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5"
       >
-        {categories[activeCategory].items.map((item) => (
-          <TechIcon key={item.name} item={item} />
+        {categories[activeTab].items.map((item) => (
+          <TechItemCard key={item.name} item={item} />
         ))}
       </motion.div>
     </div>
   );
 }
 
-function TechIcon({ item }: { item: TechItem }) {
+function TechItemCard({ item }: { item: TechItem }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      whileHover={{ scale: 1.12, rotate: 2 }}
-      whileTap={{ scale: 0.95 }}
-      className="relative flex flex-col items-center gap-2 p-4 rounded-lg border border-zinc-100 bg-white/40 backdrop-blur-sm cursor-default transition-shadow duration-300 hover:shadow-lg hover:border-zinc-300"
+      whileHover={{ y: -5, scale: 1.03 }}
+      transition={{ duration: 0.2 }}
+      className="relative flex items-center gap-4 p-4 sm:p-5 rounded-2xl border border-zinc-200 bg-white/85 backdrop-blur-md cursor-default transition-all duration-300 hover:border-indigo-400 hover:shadow-lg group shadow-xs"
     >
-      {/* Glow backdrop */}
+      {/* Border glow on hover */}
       {hovered && (
         <motion.div
-          layoutId="tech-glow"
-          className="absolute inset-0 rounded-lg bg-gradient-to-br from-zinc-100/80 to-transparent"
+          layoutId="tech-card-glow"
+          className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-emerald-500/10 to-transparent pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -376,10 +437,20 @@ function TechIcon({ item }: { item: TechItem }) {
         />
       )}
 
-      <div className="relative z-10">{item.icon}</div>
-      <span className="relative z-10 text-[9px] font-semibold uppercase tracking-widest text-zinc-500 text-center leading-tight">
-        {item.name}
-      </span>
+      {/* Icon */}
+      <div className="shrink-0 p-2.5 rounded-xl bg-zinc-50 border border-zinc-200 group-hover:bg-white group-hover:scale-110 group-hover:shadow-xs transition-all duration-300">
+        {item.icon}
+      </div>
+
+      {/* Label and Role Tag */}
+      <div className="flex flex-col min-w-0">
+        <span className="text-sm sm:text-base font-extrabold text-black uppercase tracking-tight truncate group-hover:text-indigo-950 font-heading">
+          {item.name}
+        </span>
+        <span className="text-xs font-mono font-bold text-zinc-600 uppercase tracking-wider truncate mt-0.5">
+          {item.tag}
+        </span>
+      </div>
     </motion.div>
   );
 }

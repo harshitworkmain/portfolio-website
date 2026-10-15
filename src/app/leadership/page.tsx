@@ -801,10 +801,10 @@ export default function LeadershipPage() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black uppercase font-heading">
-            Command Dashboard
+            Leadership &amp; Interests
           </h1>
           <p className="mt-3 text-xs sm:text-sm text-zinc-600 font-medium uppercase tracking-widest">
-            Leadership, Operations, NCC, Sports & Community
+            Engineering Team Operations, NCC (1 TN BN), Athletics &amp; Community Outreach
           </p>
           <div className="mt-6 border-b border-zinc-200" />
         </motion.div>

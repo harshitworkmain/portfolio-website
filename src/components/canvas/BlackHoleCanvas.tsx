@@ -177,14 +177,19 @@ function SingularityCore() {
 }
 
 // Camera controller with mouse parallax
-function CameraRig() {
+function CameraRig({ isHome }: { isHome: boolean }) {
+  const { viewport } = useThree();
+  const isDesktop = viewport.width > 9;
+
   useFrame((state) => {
-    const tx = state.pointer.x * 1.5;
-    const ty = state.pointer.y * 1.0 + 3.5;
+    // On desktop, aim slightly right so the black hole frames alongside the avatar and keeps the left text area clear
+    const targetLookX = (isHome && isDesktop) ? 1.2 : 0;
+    const tx = state.pointer.x * 1.2 + ((isHome && isDesktop) ? 0.6 : 0);
+    const ty = state.pointer.y * 0.8 + 3.2;
     state.camera.position.x += (tx - state.camera.position.x) * 0.04;
     state.camera.position.y += (ty - state.camera.position.y) * 0.04;
     state.camera.position.z += (12.0 - state.camera.position.z) * 0.04;
-    state.camera.lookAt(0, 0, 0);
+    state.camera.lookAt(targetLookX, 0, 0);
   });
   return null;
 }
@@ -230,29 +235,22 @@ function SuspendedParticles({ count = 1500 }) {
   );
 }
 
-function ResponsiveBlackHole() {
-  const { size } = useThree();
-  const isMobile = size.width < 768;
-  return (
-    <group
-      scale={isMobile ? 0.65 : 1}
-      position={isMobile ? [0, -2.0, 0] : [0, 0, 0]}
-    >
-      <AccretionDisk count={isMobile ? 6000 : 12000} />
-      <PhotonRing count={isMobile ? 1000 : 2000} />
-      <LensingArc count={isMobile ? 1500 : 2500} />
-      <SingularityCore />
-    </group>
-  );
-}
-
 function Scene({ isHome }: { isHome: boolean }) {
+  const { viewport } = useThree();
+  const isDesktop = viewport.width > 9;
+  const blackHolePos: [number, number, number] = isDesktop ? [2.4, -0.2, 0] : [0, 0.5, 0];
+
   return (
     <>
       <ambientLight intensity={0.1} />
-      <CameraRig />
+      <CameraRig isHome={isHome} />
       {isHome ? (
-        <ResponsiveBlackHole />
+        <group position={blackHolePos}>
+          <AccretionDisk count={12000} />
+          <PhotonRing count={2000} />
+          <LensingArc count={2500} />
+          <SingularityCore />
+        </group>
       ) : (
         <SuspendedParticles count={1500} />
       )}
@@ -271,7 +269,7 @@ function CanvasFallback({ isHome }: { isHome: boolean }) {
   const drawBlackHole = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number, time: number) => {
     ctx.clearRect(0, 0, w, h);
     const isMobile = w < 768;
-    const cx = w / 2;
+    const cx = isMobile ? w / 2 : w * 0.70;
     const cy = isMobile ? h / 2 + 100 : h / 2;
     const scale = (Math.min(w, h) / 5) * (isMobile ? 0.65 : 1);
 

@@ -23,9 +23,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Harshit Singh | Portfolio",
+  title: "Harshit Singh | Data Science & Applied ML",
   description:
-    "B.Tech in Electronics & Computer Engineering — Robotics, Edge AI, Applied Computer Vision Developer Portfolio.",
+    "I build software systems and back them with applied machine learning. From raw data to a deployed model — data science, data engineering, and software engineering roles.",
 };
 
 export default function RootLayout({

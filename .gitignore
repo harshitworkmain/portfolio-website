@@ -38,3 +38,7 @@ public/videos/SPARC.mp4
 # scratch directory for temporary developer files
 /scratch/
 
+# Local resumes archive (reference data kept local)
+resumes-data/
+docs/resumes-data/
+/resume.pdf

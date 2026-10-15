@@ -10,10 +10,62 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
   { name: "Achievements", href: "/achievements" },
-  { name: "Leadership", href: "/leadership" },
+  { name: "Leadership & Interests", href: "/leadership" },
+  { name: "Internship", href: "/internship" },
   { name: "About", href: "/about" },
+  { name: "Resume", href: "/resume" },
   { name: "Contact", href: "/#contact" },
 ];
+
+function AnimatedBrandLogo() {
+  const [isHovered, setIsHovered] = useState(false);
+  const name = "HARSHIT SINGH";
+
+  return (
+    <Link
+      href="/"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group flex items-center gap-3 select-none"
+    >
+      {/* Kinetic Animated Name (Style: Character Ripple Wave + Gradient Shift) */}
+      <div className="flex items-center">
+        <span className="flex text-sm sm:text-base font-black tracking-wider uppercase font-heading">
+          {name.split("").map((char, i) => (
+            <motion.span
+              key={i}
+              animate={
+                isHovered
+                  ? {
+                      y: [0, -5, 0],
+                      color: ["#000000", "#4f46e5", "#000000"],
+                    }
+                  : { y: 0, color: "#000000" }
+              }
+              transition={{
+                duration: 0.35,
+                delay: i * 0.025,
+                ease: "easeOut",
+              }}
+              className="inline-block"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </span>
+      </div>
+
+      {/* Live Permanent Location Badge: Chennai, India */}
+      <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-zinc-200/90 bg-zinc-100/70 backdrop-blur-md text-[10px] font-mono font-bold tracking-wider uppercase text-zinc-700 shadow-2xs group-hover:border-indigo-400 group-hover:bg-indigo-50/60 group-hover:text-indigo-950 transition-all duration-300">
+        <span className="relative flex h-2 w-2 items-center justify-center">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.9)]" />
+        </span>
+        <span>Chennai, IN</span>
+      </div>
+    </Link>
+  );
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -39,20 +91,14 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200/60 bg-white/60 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200/60 bg-white/70 backdrop-blur-xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo / Branding */}
-          <Link
-            href="/"
-            className="group flex items-center gap-2 text-sm font-semibold tracking-widest text-black uppercase transition-all duration-300 hover:opacity-60"
-          >
-            <span>Harshit Singh</span>
-            <span className="h-1.5 w-1.5 rounded-full bg-black animate-pulse" />
-          </Link>
+          {/* Kinetic Logo / Branding + Location Tag */}
+          <AnimatedBrandLogo />
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7">
             {navItems.map((item) => {
               const isActive =
                 item.href === "/#contact"
